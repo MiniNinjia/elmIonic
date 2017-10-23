@@ -19,14 +19,13 @@ export class FoodServiceProvider {
   _url = this.glo.serverUrl;
 
   getfood(id, callback) {
-    const params = new URLSearchParams();
-    params.set('restaurant_id', id);
-    this.http.get(this._url + '/shopping/v2/menu', {search: params}).subscribe(
+    this.http.get(this._url + '/shopping/v2/menu?restaurant_id=' + id).subscribe(
       function (result) {
         callback(result);
       }
     );
   }
+
   getdiaryList(postdata: any, callback) {
     this.http.post(this._url + '/diary', postdata).subscribe(
       function (result) {

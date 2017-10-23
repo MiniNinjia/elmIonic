@@ -1,7 +1,6 @@
 import {Component, ViewChild} from '@angular/core';
 import {IonicPage, NavController, NavParams, ViewController, Content} from 'ionic-angular';
 import {
-
   trigger,
   state,
   style,
@@ -64,16 +63,15 @@ export class ShopPage {
 
   ionViewDidLoad() {
     this.type = 1;
-    console.log('1111')
-    this.fs.getfood('1', function (result) {
-      console.log(result);
+    this.fs.getfood('1', (result) => {
+      this.foodData = JSON.parse(result._body);
+      console.log(this.foodData);
     })
   }
 
-  ngOnInit(){
+  ngOnInit() {
     console.log('22222')
   }
-
 
 
   cart_add(e) {

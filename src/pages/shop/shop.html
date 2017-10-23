@@ -60,11 +60,11 @@
             <ion-col col-3 no-padding class="left_col">
               <ion-scroll scrollY="true" style="height: 100%">
                 <ion-list>
-                  <ion-item no-lines class="left_item_active">
-                    <h2>Ruby</h2>
-                  </ion-item>
-                  <ion-item no-lines>
-                    <h2>Ruby</h2>
+                  <!--<ion-item no-lines class="left_item_active">-->
+                    <!--<h2>Ruby</h2>-->
+                  <!--</ion-item>-->
+                  <ion-item no-lines *ngFor="let leftItem of foodData">
+                    <h2>{{leftItem?.name}}</h2>
                   </ion-item>
                 </ion-list>
               </ion-scroll>
