@@ -197,9 +197,9 @@
       </div>
     </div>
   </div>
-  <div class="fly_ball_out" [@bally]="true" [style.bottom]="ball.y" *ngFor="let ball of ballList">
+  <div class="fly_ball_out" [@bally]="'t'" [style.bottom]="ball.y" *ngFor="let ball of ballList">
     <ion-icon name="ios-add-circle"
-              class="fly_ball" [style.left]="ball.x" [@ballx]="true" (@ballx.done)="cart_animation($event)">
+              class="fly_ball" [style.left]="ball.x" [@ballx]="'t'" (@ballx.done)="cart_animation($event)">
     </ion-icon>
   </div>
 </ion-content>
