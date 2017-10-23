@@ -11,10 +11,12 @@ import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import {ShopPage} from '../pages/shop/shop'
 
-
+import {HttpModule} from '@angular/http';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { FoodServiceProvider } from '../providers/food-service/food-service';
+import { GlobleServiceProvider } from '../providers/globle-service/globle-service';
 @NgModule({
   declarations: [
     MyApp,
@@ -27,6 +29,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    HttpModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -41,7 +44,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    FoodServiceProvider,
+    GlobleServiceProvider
   ]
 })
 export class AppModule {}

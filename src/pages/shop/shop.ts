@@ -10,8 +10,8 @@ import {
   keyframes
 } from '@angular/animations';
 
-import {ShopService} from '../../service/shop.service';
-import {MyConifg} from '../../service/MyConifg';
+import {FoodServiceProvider} from '../../providers/food-service/food-service'
+import {GlobleServiceProvider} from '../../providers/globle-service/globle-service'
 /**
  * Generated class for the ShopPage page.
  *
@@ -58,14 +58,14 @@ export class ShopPage {
   constructor(public navCtrl: NavController,
               public viewCtrl: ViewController,
               public navParams: NavParams,
-              public ss: ShopService,
-              public myconfig: MyConifg) {
+              public fs: FoodServiceProvider,
+              public glo: GlobleServiceProvider) {
   }
 
   ionViewDidLoad() {
     this.type = 1;
     console.log('1111')
-    this.ss.getfood(1, function (result) {
+    this.fs.getfood('1', function (result) {
       console.log(result);
     })
   }
@@ -73,6 +73,8 @@ export class ShopPage {
   ngOnInit(){
     console.log('22222')
   }
+
+
 
   cart_add(e) {
     let ya = e.target.offsetTop;
