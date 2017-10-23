@@ -1,6 +1,7 @@
 import {Component, ViewChild} from '@angular/core';
 import {IonicPage, NavController, NavParams, ViewController, Content} from 'ionic-angular';
 import {
+
   trigger,
   state,
   style,
