@@ -1,0 +1,227 @@
+<!--
+  Generated template for the ShopPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header style="overflow: hidden;border-bottom: solid 2px #d3d3d3">
+  <!-----------------------//设置这里的height------------------------>
+  <div class="headers">
+    <img src="http://cangdu.org:8001/img/15e386ec1875697.jpeg" class="backImg">
+    <ion-grid class="headersInner">
+      <ion-row>
+        <ion-col col="12">
+          <button (click)="disMiss()" style="font-size: 20px;background-color: transparent;color: white">
+            <ion-icon name="ios-arrow-back"></ion-icon>
+          </button>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-3>
+          <img src="http://cangdu.org:8001/img/15e386ec1875697.jpeg" class="headerImg">
+        </ion-col>
+        <ion-col col-9 style="color: white">
+          <h4><strong>华莱士</strong></h4>
+          <p> 商家配送/分钟必达/配送费￥5</p>
+          <p><span>公告：</span><span>好吃好吃好吃</span></p>
+        </ion-col>
+      </ion-row>
+      <ion-row class="activities">
+        <ion-col col-10>
+          <span class="activitiesType">减</span>
+          满30减5，满60减8
+        </ion-col>
+        <ion-col col-2>
+          1个活动
+          <ion-icon name="md-arrow-dropright"></ion-icon>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <ion-segment [(ngModel)]="type">
+    <ion-segment-button value="1">
+      <span [class.myActivated]="type==1">商品</span>
+    </ion-segment-button>
+    <ion-segment-button value="2">
+      <span [class.myActivated]="type==2">评价</span>
+    </ion-segment-button>
+    <ion-segment-button value="3">
+      <span [class.myActivated]="type==3">店铺</span>
+    </ion-segment-button>
+  </ion-segment>
+</ion-header>
+
+<ion-content style="background-color: #f8f8f8;overflow: hidden">
+  <div class="contents">
+    <div [ngSwitch]="type" style="height: 100%">
+      <div *ngSwitchCase="1" style="height: 100%">
+        <ion-grid no-padding style="background-color: #f8f8f8;height: 100%">
+          <ion-row no-padding style="height: 100%">
+            <ion-col col-3 no-padding class="left_col">
+              <ion-scroll scrollY="true" style="height: 100%">
+                <ion-list>
+                  <ion-item no-lines class="left_item_active">
+                    <h2>Ruby</h2>
+                  </ion-item>
+                  <ion-item no-lines>
+                    <h2>Ruby</h2>
+                  </ion-item>
+                </ion-list>
+              </ion-scroll>
+            </ion-col>
+            <ion-col col-9 no-padding class="right_col">
+              <ion-scroll scrollY="true" style="height: 100%">
+                <ion-list>
+                  <div class="right_col_menu">asddasd</div>
+                  <ion-item class="right_col_item">
+                    <ion-grid no-padding>
+                      <ion-row no-padding>
+                        <ion-col col-3 no-padding>
+                          <img src="http://cangdu.org:8001/img/15e386ec1875697.jpeg" class="item_img">
+                        </ion-col>
+                        <ion-col col-9 no-padding>
+                          <h2><strong>四川火锅</strong></h2>
+                          <p class="right_col_item_disc">狠辣</p>
+                          <p class="right_col_item_comment">月售90份 好评率79%</p>
+                          <p class="right_col_item_activated">招牌</p>
+                          <div class="right_col_item_add">
+                            <span class="price_icon">￥</span><span class="right_col_item_price">20</span>
+                            <div class="right_col_item_addicon">
+                              <a>
+                                <ion-icon name="ios-remove-circle-outline" id="subIcon"></ion-icon>
+
+                                <a class="item_count">10</a>
+                                <ion-icon name="ios-add-circle" id="addIcon" (click)="cart_add($event)">
+
+                                </ion-icon>
+                              </a>
+
+                            </div>
+                          </div>
+                        </ion-col>
+                      </ion-row>
+                    </ion-grid>
+                  </ion-item>
+                  <ion-item class="right_col_item">
+                    <ion-grid no-padding>
+                      <ion-row no-padding>
+                        <ion-col col-3 no-padding>
+                          <img src="http://cangdu.org:8001/img/15e386ec1875697.jpeg" class="item_img">
+                        </ion-col>
+                        <ion-col col-9 no-padding>
+                          <h2><strong>四川火锅</strong></h2>
+                          <p class="right_col_item_disc">狠辣</p>
+                          <p class="right_col_item_comment">月售90份 好评率79%</p>
+                          <p class="right_col_item_activated">招牌</p>
+                          <div class="right_col_item_add">
+                            <span class="price_icon">￥</span><span class="right_col_item_price">20</span>
+                            <div class="right_col_item_addicon">
+                              <a>
+                                <ion-icon name="ios-remove-circle-outline" id="subIcon"></ion-icon>
+
+                                <a class="item_count">10</a>
+                                <ion-icon name="ios-add-circle" id="addIcon" (click)="cart_add($event)">
+
+                                </ion-icon>
+                              </a>
+
+                            </div>
+                          </div>
+                        </ion-col>
+                      </ion-row>
+                    </ion-grid>
+                  </ion-item>
+                  <ion-item class="right_col_item">
+                    <ion-grid no-padding>
+                      <ion-row no-padding>
+                        <ion-col col-3 no-padding>
+                          <img src="http://cangdu.org:8001/img/15e386ec1875697.jpeg" class="item_img">
+                        </ion-col>
+                        <ion-col col-9 no-padding>
+                          <h2><strong>四川火锅</strong></h2>
+                          <p class="right_col_item_disc">狠辣</p>
+                          <p class="right_col_item_comment">月售90份 好评率79%</p>
+                          <p class="right_col_item_activated">招牌</p>
+                          <div class="right_col_item_add">
+                            <span class="price_icon">￥</span><span class="right_col_item_price">20</span>
+                            <div class="right_col_item_addicon">
+                              <a>
+                                <ion-icon name="ios-remove-circle-outline" id="subIcon"></ion-icon>
+
+                                <a class="item_count">10</a>
+                                <ion-icon name="ios-add-circle" id="addIcon" (click)="cart_add($event)">
+
+                                </ion-icon>
+                              </a>
+
+                            </div>
+                          </div>
+                        </ion-col>
+                      </ion-row>
+                    </ion-grid>
+                  </ion-item>
+                  <ion-item class="right_col_item">
+                    <ion-grid no-padding>
+                      <ion-row no-padding>
+                        <ion-col col-3 no-padding>
+                          <img src="http://cangdu.org:8001/img/15e386ec1875697.jpeg" class="item_img">
+                        </ion-col>
+                        <ion-col col-9 no-padding>
+                          <h2><strong>四川火锅</strong></h2>
+                          <p class="right_col_item_disc">狠辣</p>
+                          <p class="right_col_item_comment">月售90份 好评率79%</p>
+                          <p class="right_col_item_activated">招牌</p>
+                          <div class="right_col_item_add">
+                            <span class="price_icon">￥</span><span class="right_col_item_price">20</span>
+                            <div class="right_col_item_addicon">
+                              <a>
+                                <ion-icon name="ios-remove-circle-outline" id="subIcon"></ion-icon>
+
+                                <a class="item_count">10</a>
+                                <ion-icon name="ios-add-circle" id="addIcon" (click)="cart_add($event)">
+
+                                </ion-icon>
+                              </a>
+
+                            </div>
+                          </div>
+                        </ion-col>
+                      </ion-row>
+                    </ion-grid>
+                  </ion-item>
+                </ion-list>
+              </ion-scroll>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+    </div>
+  </div>
+  <div class="fly_ball_out" [@bally]="true" [style.bottom]="ball.y" *ngFor="let ball of ballList">
+    <ion-icon name="ios-add-circle"
+              class="fly_ball" [style.left]="ball.x" [@ballx]="true" (@ballx.done)="cart_animation($event)">
+    </ion-icon>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-grid no-padding>
+    <ion-row style="background-color: #505051">
+      <ion-col col-3>
+        <div #cart_position class="cart_container getsomething" [class.cart_animation]="flag==true">
+
+        </div>
+      </ion-col>
+      <ion-col col-6>
+        <ion-item no-lines style="background-color: #505051">
+
+        </ion-item>
+      </ion-col>
+      <ion-col col-3 style="background-color: red">
+        <button full ion-button no-margin style="height: 100%">
+          ￥20起送
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>
