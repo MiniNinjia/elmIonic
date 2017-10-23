@@ -14,6 +14,7 @@ import {ShopPage} from '../pages/shop/shop'
 import {HttpModule} from '@angular/http';
 
 
+
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { FoodServiceProvider } from '../providers/food-service/food-service';
