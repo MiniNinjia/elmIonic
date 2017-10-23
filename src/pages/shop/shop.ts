@@ -1,5 +1,5 @@
 import {Component, ViewChild} from '@angular/core';
-import {IonicPage, NavController, NavParams, ViewController, Content} from 'ionic-angular';
+import {IonicPage, NavController, NavParams, ViewController, Content, PopoverController} from 'ionic-angular';
 import {
   trigger,
   state,
@@ -11,6 +11,7 @@ import {
 
 import {FoodServiceProvider} from '../../providers/food-service/food-service'
 import {GlobleServiceProvider} from '../../providers/globle-service/globle-service'
+import {ShopCartPage} from '../shop-cart/shop-cart'
 /**
  * Generated class for the ShopPage page.
  *
@@ -59,12 +60,14 @@ export class ShopPage {
   cartData = [];//购物车的集合;
   left_item_active = 0;//左边选中的第几个元素;
   cart_Count = 0;
+  showCartShow = false;
 
   constructor(public navCtrl: NavController,
               public viewCtrl: ViewController,
               public navParams: NavParams,
               public fs: FoodServiceProvider,
-              public glo: GlobleServiceProvider) {
+              public glo: GlobleServiceProvider,
+              public  popoverCtrl: PopoverController) {
   }
 
   ionViewDidLoad() {
@@ -103,7 +106,18 @@ export class ShopPage {
     } else {
       this.foodData[j].foods[k].selectCount = 0;
     }
+    for (let a in this.cartData) {
+      if (this.cartData[a].id == data.food_id) {
+        this.cartData[a].quantity = this.foodData[j].foods[k].selectCount;
+        if (this.cartData[a].quantity == 0) {
+          this.cartData.splice(+a, 1);
+          break;
+        }
+      }
+    }
+    if (this.cart_Count <= 0) this.showCartShow = false;
   }
+
 
   //购物车添加food
   cart_add(e, data, j, k) {
@@ -126,27 +140,78 @@ export class ShopPage {
       this.foodData[j].foods[k].selectCount = 1;
     }
     this.cart_Count += 1;
-    console.log(data);
+    let ppp = false;
     this.cartData.forEach((a) => {
-
+      if (a.id == data.food_id) {
+        a.quantity++;
+        ppp = true;
+      }
     });
-    this.cartData.push({
-      attrs: [],
-      extra: {},
-      id: 1992,
-      name: "xcv",
-      packing_fee: 0,
-      price: 20,
-      quantity: 1,
-      sku_id: 1990,
-      specs: ["默认"],
-      stock: 1000,
-    })
+    if (!ppp) {
+      this.cartData.push({
+        attrs: [],
+        extra: {},
+        id: data.food_id,
+        name: data.name,
+        packing_fee: data.packing_fee,
+        price: data.price,
+        quantity: 1,
+        sku_id: data.specs_name,
+        specs: data.specs,
+        stock: data.stock,
+        j: j,
+        k: k
+      });
+    }
+    console.log(this.cartData);
   }
-  //show购物车里面的东西
-  showCart(){
 
+  //购物车减少food2
+  cart_sub2(i, j, k) {
+    this.cart_Count -= 1;
+    if (this.foodData[j].foods[k].selectCount - 1 > 0) {
+      this.foodData[j].foods[k].selectCount = this.foodData[j].foods[k].selectCount - 1;
+    } else {
+      this.foodData[j].foods[k].selectCount = 0;
+    }
+    this.cartData[i].quantity -= 1;
+    if (this.cartData[i].quantity == 0) {
+      this.cartData.splice(i, 1);
+    }
+    if (this.cart_Count <= 0) this.showCartShow = false;
   }
+
+  //购物车添加food2
+  cart_add2(i, j, k) {
+    this.cart_Count += 1;
+    if (this.foodData[j].foods[k].selectCount) {
+      this.foodData[j].foods[k].selectCount = this.foodData[j].foods[k].selectCount + 1;
+    } else {
+      this.foodData[j].foods[k].selectCount = 1;
+    }
+    this.cartData[i].quantity += 1;
+  }
+
+  //清空购物车
+  clearCart() {
+    this.cart_Count = 0;
+    this.cartData = [];
+    this.foodData.forEach((a) => {
+      a.foods.forEach((b) => {
+        b.selectCount = 0;
+      })
+    })
+    this.showCartShow = false;
+  }
+
+  showCart() {
+    if (this.showCartShow) {
+      this.showCartShow = !this.showCartShow;
+    } else {
+      if (this.cart_Count > 0) this.showCartShow = !this.showCartShow
+    }
+  }
+
   //加到购物车特效
   cart_animation() {
     this.ballList.pop();

@@ -137,20 +137,45 @@
               class="fly_ball" [style.left]="ball.x" [@ballx]="'t'" (@ballx.done)="cart_animation($event)">
     </ion-icon>
   </div>
+  <div class="mypopover" (click)="showCart()" *ngIf="showCartShow && cart_Count>0">
+    <ion-list class="mypopover_list" no-margin (click)="$event.stopPropagation()">
+      <ion-item no-lines no-border style="background-color: #eceff1">
+        购物车
+        <div style="float: right;text-align: right">
+          <ion-icon name="ios-trash" style="color: #777777;" (click)="clearCart()">
+            <span style="font-size: 0.7em;">清空</span>
+          </ion-icon>
+        </div>
+      </ion-item>
+      <ion-item>
+        <ion-grid>
+          <ion-row *ngFor="let cartItem of cartData;let i =index" >
+            <ion-col col-7>{{cartItem?.name}}</ion-col>
+            <ion-col col-2>
+              <span class="price_icon">￥</span>
+              <span class="right_col_item_price">{{cartItem?.price}}</span>
+            </ion-col>
+            <ion-col col-3 class="right_col_item_addicon">
+              <ion-icon name="ios-remove-circle-outline" (click)="cart_sub2(i,cartItem.j,cartItem.k)">
+              </ion-icon>
+              <a class="item_count">{{cartItem?.quantity}}</a>
+              <ion-icon name="ios-add-circle" (click)="cart_add2(i,cartItem.j,cartItem.k)"></ion-icon>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+    </ion-list>
+  </div>
 </ion-content>
 
 <ion-footer>
-  <div class="">
-
-  </div>
   <ion-grid no-padding>
     <ion-row style="background-color: #505051">
-      <ion-col col-3>
+      <ion-col col-3 (click)="showCart()">
         <div #cart_position class="cart_container"
              [class.getsomething]="cart_Count>0"
              [class.nothing]="cart_Count==0"
-             [class.cart_animation]="flag==true"
-             (click)="showCart()">
+             [class.cart_animation]="flag==true">
           <div class="getsomething_after" *ngIf="cart_Count>0">
             {{cart_Count}}
           </div>

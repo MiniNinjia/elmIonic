@@ -10,6 +10,7 @@ import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import {ShopPage} from '../pages/shop/shop'
+import {ShopCartPage} from '../pages/shop-cart/shop-cart'
 
 import {HttpModule} from '@angular/http';
 
@@ -26,7 +27,8 @@ import { GlobleServiceProvider } from '../providers/globle-service/globle-servic
     ContactPage,
     HomePage,
     TabsPage,
-    ShopPage
+    ShopPage,
+    ShopCartPage
   ],
   imports: [
     BrowserModule,
@@ -41,7 +43,8 @@ import { GlobleServiceProvider } from '../providers/globle-service/globle-servic
     ContactPage,
     HomePage,
     TabsPage,
-    ShopPage
+    ShopPage,
+    ShopCartPage
   ],
   providers: [
     StatusBar,
