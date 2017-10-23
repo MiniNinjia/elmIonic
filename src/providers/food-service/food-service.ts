@@ -19,7 +19,7 @@ export class FoodServiceProvider {
   _url = this.glo.serverUrl;
 
   getfood(id, callback) {
-    this.http.get(this._url + '/shopping/v2/menu?restaurant_id=' + id).subscribe(
+    this.http.get(this._url + '/shopping/v2/menu?restaurant_id=1' ).subscribe(
       function (result) {
         callback(result);
       }

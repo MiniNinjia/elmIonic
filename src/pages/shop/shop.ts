@@ -53,6 +53,7 @@ export class ShopPage {
   ballList = [];//小球的集合 。x:小球的X坐标;y:小球的Y坐标。左下角为起点
   screenH = screen.height;//
   foodData: any;
+  img_url = this.glo.uploadUrl;
 
   constructor(public navCtrl: NavController,
               public viewCtrl: ViewController,
@@ -63,6 +64,7 @@ export class ShopPage {
 
   ionViewDidLoad() {
     this.type = 1;
+
     this.fs.getfood('1', (result) => {
       this.foodData = JSON.parse(result._body);
       console.log(this.foodData);
