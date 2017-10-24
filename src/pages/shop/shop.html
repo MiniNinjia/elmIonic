@@ -7,7 +7,7 @@
 <ion-header style="overflow: hidden;border-bottom: solid 2px #d3d3d3">
   <!-----------------------//设置这里的height------------------------>
   <div class="headers">
-    <img src="http://cangdu.org:8001/img/15e386ec1875697.jpeg" class="backImg">
+    <img src="{{_img}}{{restaurantData?.image_path}}" class="backImg">
     <ion-grid class="headersInner">
       <ion-row>
         <ion-col col="12">
@@ -18,24 +18,25 @@
       </ion-row>
       <ion-row>
         <ion-col col-3>
-          <img src="http://cangdu.org:8001/img/15e386ec1875697.jpeg" class="headerImg">
+          <img src="{{_img}}15e386ec1875697.jpeg" class="headerImg">
         </ion-col>
         <ion-col col-9 style="color: white">
-          <h4><strong>华莱士</strong></h4>
-          <p> 商家配送/分钟必达/配送费￥5</p>
-          <p><span>公告：</span><span>好吃好吃好吃</span></p>
+          <h4><strong>{{restaurantData?.name}}</strong></h4>
+          <p> 商家配送/分钟必达/{{restaurantData?.piecewise_agent_fee?.tips}}</p>
+          <p><span>公告：</span><span>{{restaurantData?.promotion_info}}</span></p>
         </ion-col>
       </ion-row>
       <ion-row class="activities">
         <ion-col col-10>
-          <span class="activitiesType">减</span>
-          满30减5，满60减8
+          <span class="activitiesType">{{restaurantData?.activities[0]?.icon_name}}</span>
+          {{restaurantData?.activities[0]?.description}}
         </ion-col>
         <ion-col col-2>
-          1个活动
+          {{restaurantData?.activities.length||0}}个活动
           <ion-icon name="md-arrow-dropright"></ion-icon>
         </ion-col>
       </ion-row>
+      <ion-icon style="position: absolute; font-size:2em ; right: 1em;top: 50%;transform: translateY(-50%)" name="ios-arrow-forward-outline"></ion-icon>
     </ion-grid>
   </div>
   <ion-segment [(ngModel)]="type">
@@ -130,6 +131,10 @@
           </ion-row>
         </ion-grid>
       </div>
+      <div *ngSwitchCase="2" style="height: 100%;">
+        <ion-scroll scrollY="true" style="height: 100%;background-color: red;">
+        </ion-scroll>
+      </div>
     </div>
   </div>
   <div class="fly_ball_out" [@bally]="'t'" [style.bottom]="ball.y" *ngFor="let ball of ballList">
@@ -137,8 +142,6 @@
               class="fly_ball" [style.left]="ball.x" [@ballx]="'t'" (@ballx.done)="cart_animation($event)">
     </ion-icon>
   </div>
-
-
   <!------------------------------我的购物车------------------------------>
   <div class="mypopover" (click)="showCart()" *ngIf="showCartShow && cart_Count>0">
     <ion-list class="mypopover_list" no-margin (click)="$event.stopPropagation()">
@@ -155,7 +158,7 @@
           <ion-row *ngFor="let cartItem of cartData;let i =index">
             <ion-col col-7>
               {{cartItem?.name}}
-              <p *ngIf="cartItem?.specs[0]?.value" >{{cartItem?.specs[0]?.value}}</p>
+              <p *ngIf="cartItem?.specs[0]?.value">{{cartItem?.specs[0]?.value}}</p>
             </ion-col>
             <ion-col col-2>
               <span class="price_icon">￥</span>
@@ -173,11 +176,36 @@
     </ion-list>
   </div>
   <!------------------------------我的购物车------------------------------>
-
-
 </ion-content>
-<!----------------多规格商品加入购物车--------------------------->
-<div class="madol_container" *ngIf="madolData.flag" (click)="closeMadol();$event.stopPropagation()">
+<ion-footer>
+  <ion-grid no-padding>
+    <ion-row style="background-color: #505051">
+      <ion-col col-3 (click)="showCart()">
+        <div #cart_position class="cart_container"
+             [class.getsomething]="cart_Count>0"
+             [class.nothing]="cart_Count==0"
+             [class.cart_animation]="flag==true">
+          <div class="getsomething_after" *ngIf="cart_Count>0">
+            {{cart_Count}}
+          </div>
+        </div>
+      </ion-col>
+      <ion-col col-6 style="background-color: #505051;">
+        <h4 style="color: white;font-size: 1.2em; margin: 0;font-weight: 700">￥{{sumPrice.toFixed(2)}}</h4>
+        <span style="color: white;font-size: 0.9em;">配送费￥{{sumPrice.toFixed(2)}}</span>
+      </ion-col>
+      <ion-col col-3>
+        <button full ion-button no-margin style="height: 100%">
+          ￥20起送
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>
+
+
+<!------------------------------多规格商品加入购物车--------------------------->
+<div class="madol_container" *ngIf="madolData.flag&&type==1" (click)="closeMadol();$event.stopPropagation()">
   <div class="main_container" (click)="$event.stopPropagation()">
     <header>
       <h4 class="ellipsis">{{madolData?.data[0]?.name}}</h4>
@@ -201,7 +229,7 @@
     </footer>
   </div>
 </div>
-<!----------------多规格商品加入购物车--------------------------->
+<!------------------------------多规格商品加入购物车--------------------------->
 
 <!----------------------------------加载动画--------------------------->
 <div class="loading" *ngIf="loading">
@@ -216,29 +244,3 @@
 </div>
 <!----------------------------------加载动画--------------------------->
 
-<ion-footer>
-  <ion-grid no-padding>
-    <ion-row style="background-color: #505051">
-      <ion-col col-3 (click)="showCart()">
-        <div #cart_position class="cart_container"
-             [class.getsomething]="cart_Count>0"
-             [class.nothing]="cart_Count==0"
-             [class.cart_animation]="flag==true">
-          <div class="getsomething_after" *ngIf="cart_Count>0">
-            {{cart_Count}}
-          </div>
-        </div>
-      </ion-col>
-      <ion-col col-6>
-        <ion-item no-lines style="background-color: #505051">
-          asdas
-        </ion-item>
-      </ion-col>
-      <ion-col col-3 style="background-color: red">
-        <button full ion-button no-margin style="height: 100%">
-          ￥20起送
-        </button>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-</ion-footer>

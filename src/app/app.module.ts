@@ -18,6 +18,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { FoodServiceProvider } from '../providers/food-service/food-service';
 import { GlobleServiceProvider } from '../providers/globle-service/globle-service';
+import { RestaurantProvider } from '../providers/restaurant/restaurant';
 @NgModule({
   declarations: [
     MyApp,
@@ -50,7 +51,9 @@ import { GlobleServiceProvider } from '../providers/globle-service/globle-servic
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     FoodServiceProvider,
-    GlobleServiceProvider
+    GlobleServiceProvider,
+    RestaurantProvider
+
   ]
 })
 export class AppModule {}

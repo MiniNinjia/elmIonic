@@ -9,8 +9,9 @@ import {
   keyframes
 } from '@angular/animations';
 import {FoodServiceProvider} from '../../providers/food-service/food-service'
+import{RestaurantProvider} from '../../providers/restaurant/restaurant'
 import {GlobleServiceProvider} from '../../providers/globle-service/globle-service'
-import { ToastController } from 'ionic-angular';
+import {ToastController} from 'ionic-angular';
 
 /**
  * Generated class for the ShopPage page.
@@ -71,21 +72,28 @@ export class ShopPage {
   madolPrice = 0;
   specSelectIndex: 0;
   loading = true;
+  sumPrice = 0;
+  restaurantData: any;
+
+  _img = 'http://cangdu.org:8001/img/';
 
   constructor(public navCtrl: NavController,
               public viewCtrl: ViewController,
               public navParams: NavParams,
               public fs: FoodServiceProvider,
+              public rs: RestaurantProvider,
               public glo: GlobleServiceProvider,
               public toastCtrl: ToastController) {
   }
-
   ionViewDidLoad() {
     this.type = 1;
-    let style = this.loading_img.nativeElement.style
+    let style = this.loading_img.nativeElement.style;
     setInterval(() => {
       style.backgroundPositionY = -new Date().valueOf() % 7 * 5 + 'rem';
     }, 500);
+    this.rs.getRestaurant('1', (result) => {
+      this.restaurantData = JSON.parse(result._body);
+    });
     this.fs.getfood('1', (result) => {
       this.foodData = JSON.parse(result._body);
       setTimeout(() => {
@@ -95,7 +103,7 @@ export class ShopPage {
       this.rightList._scrollContent.nativeElement.addEventListener("scroll", () => {
         let top = this.rightList._scrollContent.nativeElement.scrollTop;
         let child = this.rightList._scrollContent.nativeElement.firstElementChild.firstElementChild;
-        for (var i in this.foodData) {
+        for (let i in this.foodData) {
           if (top < child.children[i].offsetTop + child.children[i].offsetHeight) {
             this.left_item_active = +i;
             break;
@@ -123,11 +131,19 @@ export class ShopPage {
     // console.log(this.leftList._scrollContent.nativeElement.scrollTop);
   }
 
+  //计算价格
+  funSumPrice() {
+    this.sumPrice = 0;
+    this.cartData.forEach((a) => {
+      this.sumPrice += (a.price ) * a.quantity;
+    })
+  }
+
   //购物车减少food
   cart_sub(data, j, k) {
-    if(this.foodData[j].foods[k].specfoods.length>1){
+    if (this.foodData[j].foods[k].specfoods.length > 1) {
       this.presentToast('多规格商品只能去购物车删除哦')
-    }else{
+    } else {
       this.cart_Count -= 1;
       if (this.foodData[j].foods[k].selectCount - 1 > 0) {
         this.foodData[j].foods[k].selectCount = this.foodData[j].foods[k].selectCount - 1;
@@ -145,6 +161,7 @@ export class ShopPage {
       }
       if (this.cart_Count <= 0) this.showCartShow = false;
     }
+    this.funSumPrice()
   }
 
   //购物车添加food
@@ -191,6 +208,7 @@ export class ShopPage {
         k: k
       });
     }
+    this.funSumPrice()
   }
 
   //购物车减少food2
@@ -206,6 +224,8 @@ export class ShopPage {
       this.cartData.splice(i, 1);
     }
     if (this.cart_Count <= 0) this.showCartShow = false;
+    this.funSumPrice()
+
   }
 
   //购物车添加food2
@@ -217,8 +237,9 @@ export class ShopPage {
       this.foodData[j].foods[k].selectCount = 1;
     }
     this.cartData[i].quantity += 1;
-  }
+    this.funSumPrice()
 
+  }
 
   //添加有规格的商品
   specCaerAdd(data, j, k, specifications) {
@@ -230,6 +251,8 @@ export class ShopPage {
       k: k,
       data: data,
     };
+    this.funSumPrice()
+
   }
 
   //修改选中的规格
@@ -237,7 +260,6 @@ export class ShopPage {
     this.specSelectIndex = i;
     this.madolPrice = this.madolData.data[i].price
   }
-
 
   //购物车添加food--有规格的商品
   spec_cart_add2() {
@@ -274,9 +296,8 @@ export class ShopPage {
       });
     }
     this.closeMadol();
-    console.log(this.cartData)
+    this.funSumPrice();
   }
-
 
   //关闭规格选择
   closeMadol() {
@@ -294,6 +315,7 @@ export class ShopPage {
       })
     })
     this.showCartShow = false;
+    this.funSumPrice();
   }
 
   //下面购物车的状态
@@ -314,6 +336,7 @@ export class ShopPage {
       this.flag = false;
     }, 500)
   }
+
 
   disMiss() {
     this.viewCtrl.dismiss();
