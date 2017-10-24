@@ -4,9 +4,9 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header style="overflow: hidden;border-bottom: solid 2px #d3d3d3">
+<ion-header style="overflow: hidden;border-bottom: solid 2px #d3d3d3;">
   <!-----------------------//设置这里的height------------------------>
-  <div class="headers">
+  <div class="headers" #_myHeader>
     <img src="{{_img}}{{restaurantData?.image_path}}" class="backImg">
     <ion-grid class="headersInner">
       <ion-row>
@@ -52,7 +52,7 @@
   </ion-segment>
 </ion-header>
 
-<ion-content style="background-color: #f8f8f8;overflow: hidden">
+<ion-content style="background-color: #f8f8f8;overflow: hidden" >
   <div class="contents">
     <div [ngSwitch]="type" style="height: 100%">
       <div *ngSwitchCase="1" style="height: 100%">

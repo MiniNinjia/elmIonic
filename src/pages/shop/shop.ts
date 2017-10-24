@@ -53,6 +53,7 @@ export class ShopPage {
   @ViewChild('rightList') rightList: any;
   @ViewChild('leftList') leftList: any;
   @ViewChild('loading_img') loading_img: any;
+  @ViewChild('_myHeader') _myHeader: any;
   type: any;//商品。评价。店铺
   flag: boolean;//购物车的状态，true为有东西。false为空
   ballList = [];//小球的集合 。x:小球的X坐标;y:小球的Y坐标。左下角为起点
@@ -100,7 +101,7 @@ export class ShopPage {
         this.loading = false;
       }, 2000);
       this.foodData[0].flag = true;
-      this.rightList._scrollContent.nativeElement.addEventListener("scroll", () => {
+      this.rightList._scrollContent.nativeElement.addEventListener("scroll", (e) => {
         let top = this.rightList._scrollContent.nativeElement.scrollTop;
         let child = this.rightList._scrollContent.nativeElement.firstElementChild.firstElementChild;
         for (let i in this.foodData) {
@@ -336,7 +337,6 @@ export class ShopPage {
       this.flag = false;
     }, 500)
   }
-
 
   disMiss() {
     this.viewCtrl.dismiss();
