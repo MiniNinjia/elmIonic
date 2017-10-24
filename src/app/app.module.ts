@@ -14,8 +14,6 @@ import {ShopCartPage} from '../pages/shop-cart/shop-cart'
 
 import {HttpModule} from '@angular/http';
 
-
-
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { FoodServiceProvider } from '../providers/food-service/food-service';
@@ -28,7 +26,8 @@ import { GlobleServiceProvider } from '../providers/globle-service/globle-servic
     HomePage,
     TabsPage,
     ShopPage,
-    ShopCartPage
+    ShopCartPage,
+
   ],
   imports: [
     BrowserModule,
@@ -44,7 +43,7 @@ import { GlobleServiceProvider } from '../providers/globle-service/globle-servic
     HomePage,
     TabsPage,
     ShopPage,
-    ShopCartPage
+    ShopCartPage,
   ],
   providers: [
     StatusBar,

@@ -86,7 +86,7 @@ page-shop {
   .right_col_menu {
     border-bottom: solid 1px #f5f5f5 !important;
     margin: 0;
-    padding-left:16px ;
+    padding-left: 16px;
     line-height: 2em;
     background-color: #eeeeee;
   }
@@ -155,12 +155,12 @@ page-shop {
     height: 2em;
     line-height: 2em;
   }
-  .guige{
+  .guige {
     font-size: 0.9em;
     height: 2em;
     background-color: #3994e9;
     color: white;
-    padding:0 0.5em;
+    padding: 0 0.5em;
     border-radius: 0.5em;
   }
   .item_count {
@@ -173,38 +173,77 @@ page-shop {
   .right_col_item_comment {
     color: #444444;
   }
-  @keyframes cart_keyframes
-  {
-    0%   { transform: scale(1) }
-    25%  { transform: scale(.8) }
-    50%  { transform: scale(1.1) }
-    75%  { transform: scale(.9) }
-    100% { transform: scale(1) }
+  @keyframes cart_keyframes {
+    0% {
+      transform: scale(1)
+    }
+    25% {
+      transform: scale(.8)
+    }
+    50% {
+      transform: scale(1.1)
+    }
+    75% {
+      transform: scale(.9)
+    }
+    100% {
+      transform: scale(1)
+    }
   }
-  @-moz-keyframes cart_keyframes{
-    0%   { transform: scale(1) }
-    25%  { transform: scale(.8) }
-    50%  { transform: scale(1.1) }
-    75%  { transform: scale(.9) }
-    100% { transform: scale(1) }
+  @-moz-keyframes cart_keyframes {
+    0% {
+      transform: scale(1)
+    }
+    25% {
+      transform: scale(.8)
+    }
+    50% {
+      transform: scale(1.1)
+    }
+    75% {
+      transform: scale(.9)
+    }
+    100% {
+      transform: scale(1)
+    }
   }
-  @-webkit-keyframes cart_keyframes{
-    0%   { transform: scale(1) }
-    25%  { transform: scale(.8) }
-    50%  { transform: scale(1.1) }
-    75%  { transform: scale(.9) }
-    100% { transform: scale(1) }
+  @-webkit-keyframes cart_keyframes {
+    0% {
+      transform: scale(1)
+    }
+    25% {
+      transform: scale(.8)
+    }
+    50% {
+      transform: scale(1.1)
+    }
+    75% {
+      transform: scale(.9)
+    }
+    100% {
+      transform: scale(1)
+    }
   }
-  @-o-keyframes cart_keyframes{
-    0%   { transform: scale(1) }
-    25%  { transform: scale(.8) }
-    50%  { transform: scale(1.1) }
-    75%  { transform: scale(.9) }
-    100% { transform: scale(1) }
+  @-o-keyframes cart_keyframes {
+    0% {
+      transform: scale(1)
+    }
+    25% {
+      transform: scale(.8)
+    }
+    50% {
+      transform: scale(1.1)
+    }
+    75% {
+      transform: scale(.9)
+    }
+    100% {
+      transform: scale(1)
+    }
   }
-  .cart_animation{
-    animation: cart_keyframes  0.5s;
-    animation-iteration-count:1;
+  .cart_animation {
+    animation: cart_keyframes 0.5s;
+    animation-iteration-count: 1;
     animation-timing-function: cubic-bezier(0.71, 0.07, 0.89, 1.57)
   }
   .cart_container {
@@ -239,7 +278,7 @@ page-shop {
     background-color: #3994e9;
     background-image: url("../../assets/img/cart.png");
   }
-  .getsomething_after{
+  .getsomething_after {
     position: absolute;
     top: -0.7em;
     line-height: 1.2;
@@ -248,25 +287,25 @@ page-shop {
     border-radius: 0.6em;
     font-size: 0.2em;
     color: #ffffff;
-    background-image: linear-gradient(-90deg,#ff7416,#ff3c15 98%);
+    background-image: linear-gradient(-90deg, #ff7416, #ff3c15 98%);
   }
   .getsomething:after {
 
   }
-  .fly_ball_out{
+  .fly_ball_out {
     position: fixed;
     width: 100%;
     z-index: 100;
     border-radius: 100%;
   }
-  .fly_ball{
+  .fly_ball {
     position: relative;
     z-index: 100;
     color: #3994e9;
     background-color: #3994e9;
     border-radius: 100%;
   }
-  .mypopover{
+  .mypopover {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -275,14 +314,129 @@ page-shop {
     left: 0;
     background-color: rgba(80, 80, 81, 0.43);
   }
-  .mypopover_list{
-    bottom:0;
+  .mypopover_list {
+    bottom: 0;
     position: absolute;
     width: 100%;
   }
-  .myCart{
+  .myCart {
     width: 100%;
     background-color: red;
   }
 
+  .madol_container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(80, 80, 81, 0.43);
+    z-index: 1000
+  }
+  .main_container {
+    width: 70%;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border-radius: 0.5em;
+  }
+  .ellipsis {
+    font-size: 1.4em;
+    color: #222;
+    font-weight: 400;
+    text-align: center;
+    padding: .5em;
+  }
+  ._icon {
+    position: absolute;
+    right: 0.4em;
+    top: 0.2em;
+    font-size: 2em;
+  }
+  .myfooter {
+    width: 100%;
+    padding: 0.2em 0.5em;
+    background-color: #e8e8e8;
+  }
+  .modal_btn {
+    float: right;
+    height: 2em !important;
+  }
+  .myfooter:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+  .price {
+    height: 2em;
+    line-height: 2.4em !important;
+  }
+  .btn_container {
+    width: 100%;
+    padding: 0 1.2em 1.2em;
+  }
+  .btn {
+    padding: 0.6em 0.7em;
+    background-color: white;
+    border-radius: 0.4em;
+    border: solid 1px #e7e7e7;
+    margin-right: 0.5em;
+  }
+  .btn_actived {
+    padding: 0.6em 0.7em;
+    background-color: white;
+    border-radius: 0.4em;
+    border: solid 1px #3994e9;
+    margin-right: 0.5em;
+  }
+
+  .loading {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 10000;
+  }
+  .loading_container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    width: 5rem;
+    height: 5rem;
+  }
+  .loading_img {
+    width: 100%;
+    height: 100%;
+    background: url(../../assets/img/icon_loading.png) no-repeat 0 0;
+    -webkit-background-size: 5rem;
+    background-size: 5rem;
+    position: relative;
+    z-index: 11;
+    animation: load .6s infinite ease-in-out;
+    transform: translateY(0);
+  }
+  @keyframes load{
+    0%   {transform: translateY(0px);}
+    50%  {transform: translateY(-50px);}
+    100% {transform: translateY(0px);}
+  }
+  @keyframes ellipse{
+    0%   {transform: scale(1);}
+    50%  {transform: scale(0.3);}
+    100% {transform: scale(1);}
+  }
+  .load_ellipse{
+    position: absolute;
+    width: 5.2rem;
+    height: 4rem;
+    top: 4.4rem;
+    left: 0.4rem;
+    z-index: 10;
+    animation: ellipse .6s infinite ease-in-out;
+  }
 }

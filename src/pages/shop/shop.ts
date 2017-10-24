@@ -8,10 +8,10 @@ import {
   transition,
   keyframes
 } from '@angular/animations';
-
 import {FoodServiceProvider} from '../../providers/food-service/food-service'
 import {GlobleServiceProvider} from '../../providers/globle-service/globle-service'
-import {ShopCartPage} from '../shop-cart/shop-cart'
+import { ToastController } from 'ionic-angular';
+
 /**
  * Generated class for the ShopPage page.
  *
@@ -51,6 +51,7 @@ export class ShopPage {
   @ViewChild('ball_el') el_ball: any;
   @ViewChild('rightList') rightList: any;
   @ViewChild('leftList') leftList: any;
+  @ViewChild('loading_img') loading_img: any;
   type: any;//商品。评价。店铺
   flag: boolean;//购物车的状态，true为有东西。false为空
   ballList = [];//小球的集合 。x:小球的X坐标;y:小球的Y坐标。左下角为起点
@@ -61,21 +62,36 @@ export class ShopPage {
   left_item_active = 0;//左边选中的第几个元素;
   cart_Count = 0;
   showCartShow = false;
+  madolData = {
+    flag: false,
+    j: 0,
+    k: 0,
+    data: [],
+  };
+  madolPrice = 0;
+  specSelectIndex: 0;
+  loading = true;
 
   constructor(public navCtrl: NavController,
               public viewCtrl: ViewController,
               public navParams: NavParams,
               public fs: FoodServiceProvider,
               public glo: GlobleServiceProvider,
-              public  popoverCtrl: PopoverController) {
+              public toastCtrl: ToastController) {
   }
 
   ionViewDidLoad() {
     this.type = 1;
+    let style = this.loading_img.nativeElement.style
+    setInterval(() => {
+      style.backgroundPositionY = -new Date().valueOf() % 7 * 5 + 'rem';
+    }, 500);
     this.fs.getfood('1', (result) => {
       this.foodData = JSON.parse(result._body);
+      setTimeout(() => {
+        this.loading = false;
+      }, 2000);
       this.foodData[0].flag = true;
-
       this.rightList._scrollContent.nativeElement.addEventListener("scroll", () => {
         let top = this.rightList._scrollContent.nativeElement.scrollTop;
         let child = this.rightList._scrollContent.nativeElement.firstElementChild.firstElementChild;
@@ -89,6 +105,15 @@ export class ShopPage {
     })
   }
 
+  presentToast(message) {
+    const toast = this.toastCtrl.create({
+      message: message,
+      duration: 1500,
+      position: 'middle'
+    });
+    toast.present();
+  }
+
   //点击左边菜单
   clickLeft(i, e) {
     this.left_item_active = i;
@@ -100,24 +125,27 @@ export class ShopPage {
 
   //购物车减少food
   cart_sub(data, j, k) {
-    this.cart_Count -= 1;
-    if (this.foodData[j].foods[k].selectCount - 1 > 0) {
-      this.foodData[j].foods[k].selectCount = this.foodData[j].foods[k].selectCount - 1;
-    } else {
-      this.foodData[j].foods[k].selectCount = 0;
-    }
-    for (let a in this.cartData) {
-      if (this.cartData[a].id == data.food_id) {
-        this.cartData[a].quantity = this.foodData[j].foods[k].selectCount;
-        if (this.cartData[a].quantity == 0) {
-          this.cartData.splice(+a, 1);
-          break;
+    if(this.foodData[j].foods[k].specfoods.length>1){
+      this.presentToast('多规格商品只能去购物车删除哦')
+    }else{
+      this.cart_Count -= 1;
+      if (this.foodData[j].foods[k].selectCount - 1 > 0) {
+        this.foodData[j].foods[k].selectCount = this.foodData[j].foods[k].selectCount - 1;
+      } else {
+        this.foodData[j].foods[k].selectCount = 0;
+      }
+      for (let a in this.cartData) {
+        if (this.cartData[a].id == data.food_id) {
+          this.cartData[a].quantity = this.foodData[j].foods[k].selectCount;
+          if (this.cartData[a].quantity == 0) {
+            this.cartData.splice(+a, 1);
+            break;
+          }
         }
       }
+      if (this.cart_Count <= 0) this.showCartShow = false;
     }
-    if (this.cart_Count <= 0) this.showCartShow = false;
   }
-
 
   //购物车添加food
   cart_add(e, data, j, k) {
@@ -163,7 +191,6 @@ export class ShopPage {
         k: k
       });
     }
-    console.log(this.cartData);
   }
 
   //购物车减少food2
@@ -192,6 +219,71 @@ export class ShopPage {
     this.cartData[i].quantity += 1;
   }
 
+
+  //添加有规格的商品
+  specCaerAdd(data, j, k, specifications) {
+    this.specSelectIndex = 0;
+    this.madolPrice = data[0].price;
+    this.madolData = {
+      flag: true,
+      j: j,
+      k: k,
+      data: data,
+    };
+  }
+
+  //修改选中的规格
+  selectMadolCart(i) {
+    this.specSelectIndex = i;
+    this.madolPrice = this.madolData.data[i].price
+  }
+
+
+  //购物车添加food--有规格的商品
+  spec_cart_add2() {
+    this.cart_Count += 1;
+    let j = this.madolData.j;
+    let k = this.madolData.k;
+    let data = this.madolData.data;
+    if (this.foodData[j].foods[k].selectCount) {
+      this.foodData[j].foods[k].selectCount = this.foodData[j].foods[k].selectCount + 1;
+    } else {
+      this.foodData[j].foods[k].selectCount = 1;
+    }
+    let ppp = false;
+    this.cartData.forEach((a) => {
+      if (a.id == data[this.specSelectIndex].food_id) {
+        a.quantity++;
+        ppp = true;
+      }
+    });
+    if (!ppp) {
+      this.cartData.push({
+        attrs: [],
+        extra: {},
+        id: data[this.specSelectIndex].food_id,
+        name: data[this.specSelectIndex].name,
+        packing_fee: data[this.specSelectIndex].packing_fee,
+        price: data[this.specSelectIndex].price,
+        quantity: 1,
+        sku_id: data[this.specSelectIndex].specs_name,
+        specs: data[this.specSelectIndex].specs,
+        stock: data[this.specSelectIndex].stock,
+        j: j,
+        k: k
+      });
+    }
+    this.closeMadol();
+    console.log(this.cartData)
+  }
+
+
+  //关闭规格选择
+  closeMadol() {
+    this.madolData.flag = false;
+    this.madolData.data = [];
+  }
+
   //清空购物车
   clearCart() {
     this.cart_Count = 0;
@@ -204,6 +296,7 @@ export class ShopPage {
     this.showCartShow = false;
   }
 
+  //下面购物车的状态
   showCart() {
     if (this.showCartShow) {
       this.showCartShow = !this.showCartShow;
@@ -221,7 +314,6 @@ export class ShopPage {
       this.flag = false;
     }, 500)
   }
-
 
   disMiss() {
     this.viewCtrl.dismiss();

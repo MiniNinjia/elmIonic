@@ -113,9 +113,9 @@
                                             id="addIcon"
                                             (click)="cart_add($event,foodItem?.specfoods[0],j,k)"
                                             *ngIf="foodItem?.specfoods.length==1"></ion-icon>
-
-
-                                  <span class="guige" *ngIf="foodItem?.specfoods.length>1">选规格 </span>
+                                  <span class="guige"
+                                        *ngIf="foodItem?.specfoods.length>1"
+                                        (click)="specCaerAdd(foodItem?.specfoods,j,k,foodItem?.specifications)">选规格 </span>
                                 </a>
                               </div>
                             </div>
@@ -137,6 +137,9 @@
               class="fly_ball" [style.left]="ball.x" [@ballx]="'t'" (@ballx.done)="cart_animation($event)">
     </ion-icon>
   </div>
+
+
+  <!------------------------------我的购物车------------------------------>
   <div class="mypopover" (click)="showCart()" *ngIf="showCartShow && cart_Count>0">
     <ion-list class="mypopover_list" no-margin (click)="$event.stopPropagation()">
       <ion-item no-lines no-border style="background-color: #eceff1">
@@ -149,8 +152,11 @@
       </ion-item>
       <ion-item>
         <ion-grid>
-          <ion-row *ngFor="let cartItem of cartData;let i =index" >
-            <ion-col col-7>{{cartItem?.name}}</ion-col>
+          <ion-row *ngFor="let cartItem of cartData;let i =index">
+            <ion-col col-7>
+              {{cartItem?.name}}
+              <p *ngIf="cartItem?.specs[0]?.value" >{{cartItem?.specs[0]?.value}}</p>
+            </ion-col>
             <ion-col col-2>
               <span class="price_icon">￥</span>
               <span class="right_col_item_price">{{cartItem?.price}}</span>
@@ -166,7 +172,49 @@
       </ion-item>
     </ion-list>
   </div>
+  <!------------------------------我的购物车------------------------------>
+
+
 </ion-content>
+<!----------------多规格商品加入购物车--------------------------->
+<div class="madol_container" *ngIf="madolData.flag" (click)="closeMadol();$event.stopPropagation()">
+  <div class="main_container" (click)="$event.stopPropagation()">
+    <header>
+      <h4 class="ellipsis">{{madolData?.data[0]?.name}}</h4>
+      <ion-icon name="ios-close" class="_icon" (click)="closeMadol()"></ion-icon>
+    </header>
+    <div class="btn_container">
+      <h5>{{madolData.data[0].specs[0].name}}</h5>
+      <button
+        *ngFor="let item of madolData?.data;let i =index"
+        [class.btn_actived]="specSelectIndex==i"
+        [class.btn]="specSelectIndex!=i"
+        (click)="selectMadolCart(i)">
+        {{item?.specs[0]?.value}}
+      </button>
+    </div>
+    <footer class="myfooter">
+      <span class="right_col_item_price price"><span class="price_icon">￥</span>{{madolPrice}}</span>
+      <button ion-button class="modal_btn" (click)="spec_cart_add2()">
+        加入购物车
+      </button>
+    </footer>
+  </div>
+</div>
+<!----------------多规格商品加入购物车--------------------------->
+
+<!----------------------------------加载动画--------------------------->
+<div class="loading" *ngIf="loading">
+  <div class="loading_container">
+    <div #loading_img class="loading_img">
+
+    </div>
+    <svg class="load_ellipse" xmlns="http://www.w3.org/2000/svg" version="1.1">
+      <ellipse cx="26" cy="10" rx="26" ry="10" style="fill:#ddd;stroke:none;"></ellipse>
+    </svg>
+  </div>
+</div>
+<!----------------------------------加载动画--------------------------->
 
 <ion-footer>
   <ion-grid no-padding>
