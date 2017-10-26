@@ -1,0 +1,40 @@
+<!--
+  Generated template for the ItemsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>items</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list *ngFor="let items of item">
+    <ion-item>
+      <ion-thumbnail item-start>
+        <img src="../../assets/img/cart_nothing.png">
+      </ion-thumbnail>
+      <div class="line1">
+      <span class="yellow">品牌</span>
+        <span class="word">{{items.name}}</span>
+        <span class="bzp"> 保 准 票</span>
+      </div>
+      <div class="line2">
+      <span class="yueshou">月售<span>{{items.recent_order_num}}</span>单</span>
+
+        <span class="white">准时达</span>
+        <span class="blue">蜂鸟专送</span>
+      </div>
+      <div class="line3">
+        <span class="qisong">¥<span>{{items.float_minimum_order_amount}}</span>起送/<span>{{items.tips}}</span></span>
+        <span class="juli">87.2公里/<span class="shijian">2小时11分钟</span></span>
+      </div>
+    </ion-item>
+
+  </ion-list>
+</ion-content>

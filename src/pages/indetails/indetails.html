@@ -1,0 +1,87 @@
+<!--
+  Generated template for the IndetailsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header  style="background-color: #2c9aea;">
+
+  <!--<ion-navbar>-->
+  <ion-grid>
+    <ion-row>
+      <ion-col col-2>
+        <button (click)="disMiss()" style="font-size: 20px;background-color: transparent;color: white">
+          <ion-icon name="ios-arrow-back" ></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col col-6  id="intitle"  >食品监督安全公示</ion-col>
+      <ion-col col-4></ion-col>
+      <!--</ion-navbar>-->
+    </ion-row>
+  </ion-grid>
+</ion-header>
+
+
+<ion-content>
+  <div class="border">
+    <ion-item-group>
+      <!--<ion-item-divider color="light"></ion-item-divider>-->
+      <ion-item>
+        <h2>食品监督安全公示</h2>
+      </ion-item>
+    </ion-item-group>
+  </div>
+  <!--<ion-item>-->
+
+  <ion-item>
+    <ion-thumbnail item-start>
+      <img src="../../assets/img/cart_nothing.png">
+    </ion-thumbnail>
+    <ion-list no-lines padding-left="20px">
+      <ion-item>监督检查结果：<span style="color: red">差</span></ion-item>
+      <ion-item>检查日期：</ion-item>
+    </ion-list>
+  </ion-item>
+
+
+  <ion-list no lines>
+    <div class="border">
+      <!--<ion-item-group>-->
+      <ion-item-divider color="light"></ion-item-divider>
+      <ion-item no-lines>
+        <h2>工商登记信息</h2>
+      </ion-item>
+      <!--</ion-item-group>-->
+    </div>
+    <!--<ion-item>-->
+      <ion-list no-lines padding-left="20px">
+        <p>企业名称</p>
+        <p>工商职业注册号</p>
+        <p>注册资本</p>
+        <p>注册地址</p>
+        <p>属地监管所</p>
+        <p>法定代表人</p>
+        <p>经营范围</p>
+      </ion-list>
+
+  </ion-list>
+
+  <ion-list no lines>
+    <div class="border">
+      <!--<ion-item-group>-->
+      <ion-item-divider color="light"></ion-item-divider>
+      <ion-item no-lines>
+        <h2>餐饮许可证</h2>
+      </ion-item>
+      <!--</ion-item-group>-->
+    </div>
+    <!--<ion-item>-->
+    <ion-list no-lines padding-left="20px">
+      <p>营业范围</p>
+      <p>许可证有效期</p>
+      <p>许可证号</p>
+      <p>发证时间</p>
+    </ion-list>
+
+  </ion-list>
+</ion-content>

@@ -1,7 +1,20 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>Home</ion-title>
-  </ion-navbar>
+<!--<ion-header>-->
+  <!--<ion-navbar>-->
+    <!--<ion-title>Home</ion-title>-->
+  <!--</ion-navbar>-->
+<!--</ion-header>-->
+<ion-header style="background-color: #2c9aea;">
+
+  <!--<ion-navbar>-->
+  <ion-grid>
+    <ion-row>
+      <ion-col col-4>
+      </ion-col>
+      <ion-col col-4 id="shoptitle">home</ion-col>
+      <ion-col col-4></ion-col>
+      <!--</ion-navbar>-->
+    </ion-row>
+  </ion-grid>
 </ion-header>
 
 <ion-content>
@@ -15,4 +28,9 @@
     update any existing page or create new pages.
   </p>
   <button ion-button (click)="go()">跳转</button>
+  <button ion-button (click)="login()">登陆</button>
+  <button ion-button (click)="regist()">注册</button>
+  <button ion-button (click)="items()">商品</button>
+  <button ion-button (click)="details()">商家</button>
+
 </ion-content>
