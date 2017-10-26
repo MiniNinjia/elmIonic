@@ -18,15 +18,31 @@
 </ion-header>
 
 <ion-content>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+
+  <ion-grid no-margin no-padding style="background-color: #00a7ff">
+    <ion-row>
+      <ion-col col-8>
+        <ion-item no-lines no-border no-margin style="background-color: #00a7ff;">
+          <h2 style="color: white;
+              font-weight: 700;
+              overflow: hidden;
+              text-overflow:ellipsis;
+              white-space: nowrap;">
+            <ion-icon name="md-locate">
+              吴中区苏州高博软件高博软件
+            </ion-icon>
+          </h2>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
   <button ion-button (click)="go()">跳转</button>
   <button ion-button (click)="login()">登陆</button>
   <button ion-button (click)="regist()">注册</button>

@@ -16,6 +16,8 @@ import {ItemsPage} from '../pages/items/items'
 import {DetailsPage} from '../pages/details/details'
 import {IndetailsPage} from '../pages/indetails/indetails'
 import {SearchPage} from '../pages/search/search'
+import {ShopCartPage} from '../pages/shop-cart/shop-cart'
+
 import {HttpModule} from '@angular/http';
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -24,6 +26,7 @@ import { FoodServiceProvider } from '../providers/food-service/food-service';
 import { GlobleServiceProvider } from '../providers/globle-service/globle-service';
 
 
+import { RestaurantProvider } from '../providers/restaurant/restaurant';
 @NgModule({
   declarations: [
     MyApp,
@@ -37,8 +40,9 @@ import { GlobleServiceProvider } from '../providers/globle-service/globle-servic
     ItemsPage,
     DetailsPage,
     IndetailsPage,
-    SearchPage
-
+    SearchPage,
+    ShopPage,
+    ShopCartPage,
 
   ],
   imports: [
@@ -55,6 +59,8 @@ import { GlobleServiceProvider } from '../providers/globle-service/globle-servic
     HomePage,
     TabsPage,
     ShopPage,
+    ShopCartPage,
+    ShopPage,
     LoginPage,
     RegistPage,
     ItemsPage,
@@ -67,7 +73,9 @@ import { GlobleServiceProvider } from '../providers/globle-service/globle-servic
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     FoodServiceProvider,
-    GlobleServiceProvider
+    GlobleServiceProvider,
+    RestaurantProvider
+
   ]
 })
 export class AppModule {}
