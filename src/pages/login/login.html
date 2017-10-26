@@ -27,38 +27,26 @@
 
 
 <ion-content >
-  <ion-item-divider color="light"></ion-item-divider>
-  <ion-list >
-
-    <ion-item>
-      <!--<ion-label>账号</ion-label>-->
-      <ion-input type="text" placeholder="账号"></ion-input>
-
+  <!--<ion-item-divider color="light"></ion-item-divider>-->
+  <!--<ion-list >-->
+    <ion-row>
+      <ion-col col-12>
+        <form  [formGroup]="loginForm" (ngSubmit)="login(loginForm.value)" novalidate>
+    <ion-item [class.error]="!username.valid && username.touched">
+      <ion-input type="text" placeholder="用户名" [formControl]="username" clearInput=true></ion-input>
     </ion-item>
+          <ion-label *ngIf="username.hasError('required') && username.touched" class="error-message">* 请输入用户名</ion-label>
+          <ion-label *ngIf="(username.hasError('minlength')||username.hasError('maxlength')||username.hasError('pattern')) && username.touched" class="error-message">* 请输入正确的电话号码</ion-label>
 
     <ion-item>
-      <!--<ion-label>密码</ion-label>-->
-      <ion-input type="text" placeholder="密码"></ion-input>
+      <ion-input type="password" placeholder="请输入密码"  [formControl]="password" clearInput=true></ion-input>
       <ion-toggle disabled checked="true">abc...</ion-toggle>
     </ion-item>
-
-
-
-  </ion-list>
-  <!--<form  [formGroup]="loginForm" (ngSubmit)="login(loginForm.value)" novalidate>-->
-    <!--<ion-item [class.error]="!username.valid && username.touched">-->
-      <!--<ion-input type="tel" placeholder="请输入用户名"  [formControl]="username" clearInput=true></ion-input>-->
-    <!--</ion-item>-->
-    <!--<ion-label *ngIf="username.hasError('required') && username.touched" class="error-message">* 请输入用户名</ion-label>-->
-    <!--<ion-label *ngIf="(username.hasError('minlength')||username.hasError('maxlength')||username.hasError('pattern')) && username.touched" class="error-message">* 请输入正确的电话号码</ion-label>-->
-    <!--<ion-item>-->
-      <!--<ion-input type="password" placeholder="请输入密码"  [formControl]="password" clearInput=true></ion-input>-->
-    <!--</ion-item>-->
-    <!--<ion-label *ngIf="password.hasError('required') && password.touched" class="error-message">* 请输入密码</ion-label>-->
-    <!--<ion-label *ngIf="(password.hasError('minlength')) && password.touched" class="error-message">* 密码长度最少为六位</ion-label>-->
-    <!--<button ion-button block color="secondary" type="submit" [disabled]="!loginForm.valid">登录</button>-->
-  <!--</form>-->
-  <!--<ion-item-divider color="light">-->
+          <ion-label *ngIf="password.hasError('required') && password.touched" class="error-message">* 请输入密码</ion-label>
+          <ion-label *ngIf="(password.hasError('minlength')) && password.touched" class="error-message">* 密码长度最少为六位</ion-label>
+        </form>
+      </ion-col>
+    </ion-row>
   <p  class="login_tips" style="color: red" padding-left="20px">
     温馨提示：未注册过的账号，登录时将自动注册
   </p>
@@ -67,7 +55,7 @@
   </p>
   <!--</ion-item-divider>-->
   <div padding>
-    <button ion-button full color="secondary">登陆</button>
+    <button ion-button full color="secondary" type="submit" [disabled]="!loginForm.valid">登陆</button>
   </div>
   <p style="text-align: right;color: #7d9fdd">重置密码？</p>
   <ion-footer >
