@@ -5,7 +5,7 @@ import {HttpClientModule} from '@angular/common/http';
 
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
-import {HttpModule} from '@angular/http';
+//import {HttpModule} from '@angular/http';
 
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
@@ -21,6 +21,17 @@ import {PersonalPasswordPage}from'../pages/personal-password/personal-password'
 import {PersonalNamePage}from'../pages/personal-name/personal-name'
 import {PersonalQuestionPage}from'../pages/personal-question/personal-question'
 
+import {LoginPage} from '../pages/login/login'
+import {RegistPage} from '../pages/regist/regist'
+import {ItemsPage} from '../pages/items/items'
+import {DetailsPage} from '../pages/details/details'
+import {IndetailsPage} from '../pages/indetails/indetails'
+import {SearchPage} from '../pages/search/search'
+import {ShopCartPage} from '../pages/shop-cart/shop-cart'
+import {FoodsPage} from '../pages/foods/foods'
+
+import {HttpModule} from '@angular/http';
+
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { FoodServiceProvider } from '../providers/food-service/food-service';
@@ -29,6 +40,9 @@ import {from} from "rxjs/observable/from";
 
 import { ExplainServiceProvider } from '../providers/explain-service/explain-service';
 import {UserServiceProvider}from'../providers/user-service/user-service'
+
+
+import { RestaurantProvider } from '../providers/restaurant/restaurant';
 @NgModule({
   declarations: [
     MyApp,
@@ -36,7 +50,7 @@ import {UserServiceProvider}from'../providers/user-service/user-service'
     ContactPage,
     HomePage,
     TabsPage,
-    ShopPage,
+    //ShopPage,
     PersonalPage,
     PersonalMessagePage,
     PersonalServePage,
@@ -44,7 +58,20 @@ import {UserServiceProvider}from'../providers/user-service/user-service'
     PersonalAddadresPage,
     PersonalPasswordPage,
     PersonalQuestionPage,
-    PersonalNamePage
+    PersonalNamePage,
+
+    //婷
+    ShopPage,
+    LoginPage,
+    RegistPage,
+    ItemsPage,
+    DetailsPage,
+    IndetailsPage,
+    SearchPage,
+    ShopPage,
+    ShopCartPage,
+    FoodsPage
+
   ],
   imports: [
     BrowserModule,
@@ -60,6 +87,18 @@ import {UserServiceProvider}from'../providers/user-service/user-service'
     ContactPage,
     HomePage,
     TabsPage,
+    //ShopPage,
+    ShopCartPage,
+    ShopPage,
+    LoginPage,
+    RegistPage,
+    ItemsPage,
+    DetailsPage,
+    IndetailsPage,
+    SearchPage,
+    FoodsPage,
+
+    //婷
     ShopPage,
     PersonalPage,
     PersonalMessagePage,
@@ -75,9 +114,12 @@ import {UserServiceProvider}from'../providers/user-service/user-service'
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     FoodServiceProvider,
-    GlobleServiceProvider,
+    //GlobleServiceProvider,
     UserServiceProvider,
     ExplainServiceProvider,
+    GlobleServiceProvider,
+    RestaurantProvider
+
   ]
 })
 export class AppModule {}
