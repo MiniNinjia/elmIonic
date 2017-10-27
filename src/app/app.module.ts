@@ -36,7 +36,7 @@ import {RestaurantComponent} from '../components/restaurant/restaurant';
     ShopCartPage,
     MyComponent,
     RestaurantComponent,
-    RestaurantListPage
+    RestaurantListPage,
   ],
   imports: [
     BrowserModule,
@@ -55,8 +55,7 @@ import {RestaurantComponent} from '../components/restaurant/restaurant';
     ShopCartPage,
     MyComponent,
     RestaurantComponent,
-    RestaurantListPage
-    
+    RestaurantListPage,
   ],
   providers: [
     StatusBar,

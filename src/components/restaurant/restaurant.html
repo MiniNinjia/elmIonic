@@ -1,48 +1,55 @@
 <ion-grid>
-    <ion-row>
-        <ion-col col-12 style="border-bottom: solid 1px #f1f1f1" *ngFor="let item of restaurant">
-            <ion-grid (click)="click(item?.id)">
-                <ion-row>
-                    <ion-col col-3>
-                        <div class="img_container">
-                            <img src="http://cangdu.org:8001/img/{{item?.image_path}}" alt="">
-                        </div>
-                    </ion-col>
-                    <ion-col col-9>
-                        <header style="display: flex; justify-content:space-between">
-                            <h4 class="shoptitle">{{item?.name}}</h4>
-                            <div style="vertical-align: middle">
-                                <a class="supports" *ngFor="let supports of item?.supports">{{supports?.icon_name}}</a>
-                            </div>
-                        </header>
-                        <h5 class="rating_order_num">
-                            <div>
-                                <div class="rate_container">
-                                    <div class="unstar"><img src="../../assets/img/unstar.svg" alt=""><img src="../../assets/img/unstar.svg" alt=""><img src="../../assets/img/unstar.svg" alt=""><img src="../../assets/img/unstar.svg" alt=""><img src="../../assets/img/unstar.svg"
-                                            alt=""></div>
-                                    <div class="star" [style.width]="item?.rating*20+'%'"><img src="../../assets/img/star.svg" alt=""><img src="../../assets/img/star.svg" alt=""><img src="../../assets/img/star.svg" alt=""><img src="../../assets/img/star.svg" alt=""><img src="../../assets/img/star.svg" alt=""></div>
-                                </div>
-                                <span class="rate_number">{{item?.rating}}</span>
-                                <span class="sale_count">月售{{item?.recent_order_num}}单</span>
-                            </div>
-                            <div class="delivery_style">
-                                <span class="delivery_style_left">蜂鸟专送</span>
-                                <span class="delivery_style_right">准时达</span>
-                            </div>
-                        </h5>
-                        <h5 class="fee_distance">
-                            <span>￥{{item?.float_minimum_order_amount}}起送/配送费￥{{item?.float_delivery_fee}}</span>
-                            <div class="distance_time">
-                                <span>{{item?.distance}}/</span>
-                                <span class="time">{{item?.order_lead_time}}</span>
-                            </div>
-                        </h5>
-                        <!--<div class="actived_container" style="width: 100%;background-color: red">-->
-                        <!--<p class="actived">asdas</p>-->
-                        <!--</div>-->
-                    </ion-col>
-                </ion-row>
-            </ion-grid>
-        </ion-col>
-    </ion-row>
+  <ion-row>
+    <ion-col col-12 style="border-bottom: solid 1px #f1f1f1" *ngFor="let item of restaurant">
+      <ion-grid (click)="click(item?.id)">
+        <ion-row>
+          <ion-col col-3>
+            <div class="img_container">
+              <img src="http://cangdu.org:8001/img/{{item?.image_path}}" alt="">
+            </div>
+          </ion-col>
+          <ion-col col-9>
+            <header style="display: flex; justify-content:space-between">
+              <h4 class="shoptitle">{{item?.name}}</h4>
+              <div style="vertical-align: middle">
+                <a class="supports" *ngFor="let supports of item?.supports">{{supports?.icon_name}}</a>
+              </div>
+            </header>
+            <h5 class="rating_order_num">
+              <div>
+                <div class="rate_container">
+                  <div class="unstar"><img src="../../assets/img/unstar.svg" alt=""><img
+                    src="../../assets/img/unstar.svg" alt=""><img src="../../assets/img/unstar.svg" alt=""><img
+                    src="../../assets/img/unstar.svg" alt=""><img src="../../assets/img/unstar.svg"
+                                                                  alt=""></div>
+                  <div class="star" [style.width]="item?.rating*20+'%'"><img src="../../assets/img/star.svg" alt=""><img
+                    src="../../assets/img/star.svg" alt=""><img src="../../assets/img/star.svg" alt=""><img
+                    src="../../assets/img/star.svg" alt=""><img src="../../assets/img/star.svg" alt=""></div>
+                </div>
+                <span class="rate_number">{{item?.rating}}</span>
+                <span class="sale_count">月售{{item?.recent_order_num}}单</span>
+              </div>
+              <div class="delivery_style">
+                <span class="delivery_style_left">蜂鸟专送</span>
+                <span class="delivery_style_right">准时达</span>
+              </div>
+            </h5>
+            <h5 class="fee_distance">
+              <span>￥{{item?.float_minimum_order_amount}}起送/配送费￥{{item?.float_delivery_fee}}</span>
+              <div class="distance_time">
+                <span>{{item?.distance}}/</span>
+                <span class="time">{{item?.order_lead_time}}</span>
+              </div>
+            </h5>
+            <!--<div class="actived_container" style="width: 100%;background-color: red">-->
+            <!--<p class="actived">asdas</p>-->
+            <!--</div>-->
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-col>
+    <ion-col col-12 *ngIf="restaurant.length==0">
+      啊哦！没有数据了哦
+    </ion-col>
+  </ion-row>
 </ion-grid>

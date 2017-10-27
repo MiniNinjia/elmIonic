@@ -78,10 +78,13 @@ export class HomePage {
     const profileModal = this.modalCtrl.create(ShopPage, {shopid: id});
     profileModal.present();
   }
+
   goRestaurant(item){
     const profileModal = this.modalCtrl.create(RestaurantListPage,{item:item});
     profileModal.present(); 
   }
+  
+  
   ionViewDidLoad() {
     this.isp.index_entry((result) => {
       let data = JSON.parse(result._body);
