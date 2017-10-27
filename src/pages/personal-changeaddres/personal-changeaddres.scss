@@ -1,0 +1,56 @@
+page-personal-changeaddres {
+  .ads{
+    font-size: 2rem;
+    text-align: center;
+    font-weight: 600;
+
+  }
+  .ion-back{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .ads-w{
+  font-size: 1.5rem ;
+    padding: 4px;
+}
+  .word{
+    border:1px solid rgba(214, 214, 214, 0.57);
+    border-left: 0;
+    border-right: 0;
+    background-color:#fbf4c0;
+    margin-top: 10px;
+    word-spacing: 1px;
+  }
+  .ads-icon{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    font-size: 3rem;
+    color: #999;
+  }
+
+
+  .goto{
+    color: #c5c5c5;
+    float: right;
+  }
+  .add{
+    margin-top: 13px;
+     border: 1px solid rgba(215, 215, 215, 0.73);
+    box-shadow: #c5c5c5;
+  }
+  .item-ios.item-block .item-inner{
+    padding: 0;
+  }
+  .item-wrapper{
+    height: 45px;
+  }
+  .input-wrapper{
+    height: 45px;
+  }
+  .item-ios{
+    padding-left: 5px;
+  }
+}
