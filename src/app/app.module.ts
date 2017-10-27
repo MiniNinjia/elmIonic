@@ -1,7 +1,6 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
@@ -11,6 +10,7 @@ import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import {ShopPage} from '../pages/shop/shop'
 import {ShopCartPage} from '../pages/shop-cart/shop-cart'
+import {RestaurantListPage} from '../pages/restaurant-list/restaurant-list'
 
 import {HttpModule} from '@angular/http';
 
@@ -19,6 +19,12 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { FoodServiceProvider } from '../providers/food-service/food-service';
 import { GlobleServiceProvider } from '../providers/globle-service/globle-service';
 import { RestaurantProvider } from '../providers/restaurant/restaurant';
+import { IndexServiceProvider } from '../providers/index-service/index-service';
+
+
+import {MyComponent} from '../components/my/my';
+import {RestaurantComponent} from '../components/restaurant/restaurant';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -28,7 +34,9 @@ import { RestaurantProvider } from '../providers/restaurant/restaurant';
     TabsPage,
     ShopPage,
     ShopCartPage,
-
+    MyComponent,
+    RestaurantComponent,
+    RestaurantListPage
   ],
   imports: [
     BrowserModule,
@@ -45,6 +53,10 @@ import { RestaurantProvider } from '../providers/restaurant/restaurant';
     TabsPage,
     ShopPage,
     ShopCartPage,
+    MyComponent,
+    RestaurantComponent,
+    RestaurantListPage
+    
   ],
   providers: [
     StatusBar,
@@ -52,8 +64,8 @@ import { RestaurantProvider } from '../providers/restaurant/restaurant';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     FoodServiceProvider,
     GlobleServiceProvider,
-    RestaurantProvider
-
+    RestaurantProvider,
+    IndexServiceProvider
   ]
 })
 export class AppModule {}
