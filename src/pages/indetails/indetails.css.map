@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAGA,OAAO;EACL,aAAa,EAAE,iBAAiB;;AAElC,IAAI;EACF,KAAK,EAAE,GAAG;;AAEZ,QAAQ;EAEN,UAAU,EAAE,KAAK;EACjB,KAAK,EAAE,KAAK;EACZ,SAAS,EAAE,KAAK",
+"sources": ["indetails.scss"],
+"names": [],
+"file": "indetails.css"
+}

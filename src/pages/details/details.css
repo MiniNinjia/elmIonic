@@ -1,0 +1,17 @@
+.border {
+  border-bottom: solid 1px #c6c8cb; }
+
+.icon_name {
+  color: white;
+  border-radius: 3px;
+  font-weight: 600; }
+
+.lll {
+  float: right; }
+
+#shoptitle {
+  text-align: center;
+  color: white;
+  font-size: 1.5em; }
+
+/*# sourceMappingURL=details.css.map */

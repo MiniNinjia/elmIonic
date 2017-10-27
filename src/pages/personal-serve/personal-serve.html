@@ -1,0 +1,68 @@
+<!--
+  Generated template for the PersonalServePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col col-5 >
+        <ion-icon  name="ios-arrow-back" style="font-size: 3rem;font-weight:400;color: white" (click)="goto()"></ion-icon>
+      </ion-col>
+      <ion-col col-7 style="font-size: 2rem;font-weight:600;color: white">服务中心</ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-header>
+
+
+<ion-content >
+<ion-row>
+  <ion-col col-6 class="kefu">
+    <ion-row>
+      <ion-col col-12 style="font-size: 2.5rem;color: rgba(255, 140, 90, 0.95)">
+        <ion-icon name="md-contacts"></ion-icon>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-12 style="font-size: 1.4rem">
+        在线客服
+      </ion-col>
+    </ion-row>
+  </ion-col>
+
+
+  <ion-col col-6 class="kefu" style="border-right: 0">
+
+    <ion-row>
+      <ion-col col-12 style="font-size: 2.5rem;color: rgba(107, 194, 13, 0.95) ">
+        <ion-icon name="ios-call"></ion-icon>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-12 style="font-size: 1.4rem">
+        在线客服
+      </ion-col>
+    </ion-row>
+  </ion-col>
+</ion-row>
+
+  <!--热门问题------------------------->
+
+  <ion-row>
+    <ion-col col-12 style="font-size: 2rem;padding: 28px; padding-left:19px;border-bottom: 1px solid rgba(197, 197, 197, 0.33)">
+      热门问题
+    </ion-col>
+  </ion-row>
+<!---->
+  <ion-row (click)="getanswer(i)" class="lin" *ngFor="let item of question;let i=index">
+          <ion-col col-11 class="pword">
+       {{item}}
+          </ion-col>
+          <ion-col col-1>
+            <ion-icon name="ios-arrow-forward" class="goto"></ion-icon>
+          </ion-col>
+        </ion-row>
+
+</ion-content>

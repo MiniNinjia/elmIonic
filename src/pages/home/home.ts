@@ -1,7 +1,16 @@
 import {Component} from '@angular/core';
-import {ModalController, NavParams,NavController} from 'ionic-angular';
+import {Item, NavController} from 'ionic-angular';
+import { ModalController, NavParams } from 'ionic-angular';
+import { ViewChild } from '@angular/core';
+import { Slides } from 'ionic-angular';
+import {LoginPage} from "../login/login";
+import {ShopPage} from '../shop/shop'
+import {RegistPage} from "../regist/regist";
+import {ItemsPage} from "../items/items";
+import {DetailsPage} from "../details/details";
+import {FoodsPage} from "../foods/foods";
+
 import 'rxjs/add/operator/toPromise';
-import {ShopPage} from '../shop/shop';
 import {RestaurantListPage} from '../restaurant-list/restaurant-list';
 import {IndexServiceProvider} from '../../providers/index-service/index-service';
 @Component({
@@ -81,10 +90,10 @@ export class HomePage {
 
   goRestaurant(item){
     const profileModal = this.modalCtrl.create(RestaurantListPage,{item:item});
-    profileModal.present(); 
+    profileModal.present();
   }
-  
-  
+
+
   ionViewDidLoad() {
     this.isp.index_entry((result) => {
       let data = JSON.parse(result._body);
@@ -124,4 +133,26 @@ export class HomePage {
       }
     });
   }
+ login(){
+   let modelPage=this.modalCtrl.create(LoginPage)
+   modelPage.present()
+  }
+  regist(){
+    let modelPage=this.modalCtrl.create(RegistPage)
+    modelPage.present()
+
+}
+  items(){
+    let modelPage=this.modalCtrl.create(ItemsPage)
+    modelPage.present()
+
+  }
+  details(){
+    let modelPage=this.modalCtrl.create(DetailsPage)
+    modelPage.present();
+  }
+　foods(){
+   let modelPage=this.modalCtrl.create(FoodsPage)
+   modelPage.present();
+ }
 }

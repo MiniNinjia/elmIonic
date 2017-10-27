@@ -1,0 +1,160 @@
+<!--
+  Generated template for the PersonalPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+<!--&ndash;&gt;-->
+<ion-header>
+  <ion-grid>
+    <ion-row>
+    <ion-col col-5 >
+      <ion-icon  name="ios-arrow-back" style="font-size: 3rem;font-weight:400;color: white" (click)="goto()"></ion-icon>
+    </ion-col>
+      <ion-col col-7 style="font-size: 2rem;font-weight:600;color: white"> 我的</ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-header>
+
+<ion-content no-margin style="background-color: #f5f5f5">
+
+  <ion-grid style="padding: 0">
+    <!--用户名——————————————————————————————————————-->
+    <ion-row class="header" style="padding-top: 10px"(click)="goUserMes(17890789087)">
+      <ion-col col-3>
+        <img style="margin-left: 10px;width:65px; height: 65px; border: 1px solid #c5c5c5;border-radius: 100%;" src="http://cangdu.org:8001/img/{{userData?.avatar}}" alt="">
+      </ion-col>
+      <ion-col col-7 class="user">
+        <ion-row class="user-name">
+          <ion-col>
+            {{userData?.username}}
+          </ion-col>
+
+        </ion-row>
+        <ion-row>
+          <ion-col>
+          <ion-icon name="ios-phone-portrait"></ion-icon>
+            {{userData?.mobile}}
+          </ion-col>
+        </ion-row>
+    </ion-col>
+      <ion-col col-2 class="for-ion">
+          <ion-icon  name="ios-arrow-forward" style="font-size: 2rem;font-weight:400;color: white">
+        </ion-icon>
+      </ion-col>
+    </ion-row>
+
+
+
+    <!--余额优惠积分——————————————————————-->
+    <ion-row class="integral">
+
+      <ion-col col-4 class="ion-boder">
+       <ion-row>
+         <ion-col><span class="span1">{{userData?.balance}}</span>元</ion-col>
+       </ion-row>
+       <ion-row>
+         <ion-col>我的余额</ion-col>
+       </ion-row>
+      </ion-col>
+
+      <ion-col col-4 class="ion-boder">
+        <ion-row>
+          <ion-col><span class="span2">{{userData?.gift_amount}}</span>个</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>我的优惠</ion-col>
+        </ion-row>
+      </ion-col>
+
+      <ion-col col-4 class="ion-boder">
+        <ion-row>
+          <ion-col><span class="span3">{{userData?.point}}</span>分</ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>我的积分</ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+
+    <!--订单商城会员卡——————————————————————————————-->
+    <ion-grid>
+    <ion-row style="margin-top: 5px;border: 0"  (click)="goOrder()">
+      <ion-item-sliding>
+        <ion-item>
+          <ion-avatar item-start class="card-ss" style=" text-align: center">
+            <ion-icon name="ios-list-box"></ion-icon>
+          </ion-avatar>
+          <span class="pword">我的订单</span>
+          <ion-icon  name="ios-arrow-forward" class="goto"></ion-icon>
+        </ion-item>
+
+      </ion-item-sliding>
+    </ion-row>
+    <ion-row>
+
+      <ion-item-sliding>
+        <ion-item>
+          <ion-avatar item-start class="card-ss" style=" text-align: center">
+            <ion-icon name="md-basket" class="card-2"></ion-icon>
+          </ion-avatar>
+          <span class="pword">积分商城</span>
+          <ion-icon  name="ios-arrow-forward" class="goto">
+          </ion-icon>
+        </ion-item>
+
+
+
+      </ion-item-sliding>
+    </ion-row>
+
+    <ion-row>
+      <ion-item-sliding  >
+        <ion-item>
+          <ion-avatar item-start class="card-ss" style=" text-align: center">
+            <ion-icon name="logo-octocat" class="card-3"></ion-icon>
+          </ion-avatar>
+          <span class="pword">饿了吗会员卡</span>
+          <ion-icon  name="ios-arrow-forward" class="goto"></ion-icon>
+        </ion-item>
+
+      </ion-item-sliding>
+    </ion-row>
+      <!--服务中心——-->
+      <ion-row (click)="goServe()" style="margin-top: 5px">
+
+        <ion-item-sliding  >
+          <ion-item>
+            <ion-avatar item-start class="card-ss" style=" text-align: center">
+              <ion-icon name="ios-help-circle"></ion-icon>
+            </ion-avatar>
+            <span class="pword">服务中心</span>
+            <ion-icon  name="ios-arrow-forward" class="goto"></ion-icon>
+          </ion-item>
+
+        </ion-item-sliding>
+      </ion-row>
+
+
+      <!--下载APP___________________-->
+      <ion-row style="margin-top: 5px">
+
+        <ion-item-sliding  >
+          <ion-item>
+            <ion-avatar item-start class="card-ss" style=" text-align: center">
+              <ion-icon name="ios-help-circle"></ion-icon>
+            </ion-avatar>
+            <span class="pword">下载APP</span>
+            <ion-icon  name="ios-arrow-forward" class="goto"></ion-icon>
+          </ion-item>
+
+        </ion-item-sliding>
+      </ion-row>
+
+  </ion-grid>
+
+
+  </ion-grid>
+
+
+</ion-content>

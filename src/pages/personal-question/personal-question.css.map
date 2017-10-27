@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AACE,8BAAO;EACL,gBAAgB,EAAE,OAAO",
+"sources": ["personal-question.scss"],
+"names": [],
+"file": "personal-question.css"
+}

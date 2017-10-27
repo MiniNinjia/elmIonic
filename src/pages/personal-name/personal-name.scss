@@ -1,0 +1,38 @@
+page-personal-name {
+  .ion-back{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+  }
+  .ads{
+    font-size: 2rem;
+    text-align: center;
+    font-weight: 600;
+  }
+  .item-ios{
+    padding: 0;
+  }
+
+  .add-margin{
+    margin: 7px 7px;
+    .inputa{
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius:2px;
+      background-color: #f2f2f2;
+      font-size: 1.7rem;
+    }
+    .wordu{
+      font-size:1.2rem;
+      color: #666;
+    }
+  }
+  .btn{
+    width: 100%;
+    margin-top: 15px;
+    color: #fff;
+    border-radius: 0;
+
+  }
+}
