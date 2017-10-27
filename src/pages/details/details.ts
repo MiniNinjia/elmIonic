@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams ,ModalController } from 'ionic-angular';
 import {HomePage} from "../home/home";
 import {IndetailsPage} from '../indetails/indetails'
 import {ViewController, Content} from 'ionic-angular';
@@ -111,19 +111,24 @@ export class DetailsPage {
     }
 
   ]
-  constructor(public navCtrl: NavController, public navParams: NavParams,private viewCtrl: ViewController,public alertCtrl: AlertController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,private viewCtrl: ViewController,public alertCtrl: AlertController,public modalCtrl: ModalController,) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad DetailsPage');
   }
   goo(){
-    this.navCtrl.push(IndetailsPage)
-    this.viewCtrl.dismiss();
+    let modelPage=this.modalCtrl.create(IndetailsPage)
+    modelPage.present();
+    // this.navCtrl.push(IndetailsPage)
+    // this.viewCtrl.dismiss();
+
   }
   disMiss() {
     this.navCtrl.push(HomePage)
     this.viewCtrl.dismiss();
+    // let modelPage=this.modalCtrl.create(PostDetailPage)
+
   }
   showAlert() {
     let alert = this.alertCtrl.create({

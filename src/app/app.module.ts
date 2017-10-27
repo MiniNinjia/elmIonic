@@ -17,6 +17,7 @@ import {DetailsPage} from '../pages/details/details'
 import {IndetailsPage} from '../pages/indetails/indetails'
 import {SearchPage} from '../pages/search/search'
 import {ShopCartPage} from '../pages/shop-cart/shop-cart'
+import {FoodsPage} from '../pages/foods/foods'
 
 import {HttpModule} from '@angular/http';
 
@@ -43,6 +44,7 @@ import { RestaurantProvider } from '../providers/restaurant/restaurant';
     SearchPage,
     ShopPage,
     ShopCartPage,
+    FoodsPage
 
   ],
   imports: [
@@ -66,7 +68,8 @@ import { RestaurantProvider } from '../providers/restaurant/restaurant';
     ItemsPage,
     DetailsPage,
     IndetailsPage,
-    SearchPage
+    SearchPage,
+    FoodsPage
   ],
   providers: [
     StatusBar,
@@ -77,5 +80,6 @@ import { RestaurantProvider } from '../providers/restaurant/restaurant';
     RestaurantProvider
 
   ]
+
 })
 export class AppModule {}

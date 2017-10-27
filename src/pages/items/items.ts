@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import {HomePage} from "../home/home";
+import {ViewController, Content} from 'ionic-angular';
 /**
  * Generated class for the ItemsPage page.
  *
@@ -58,11 +59,14 @@ export class ItemsPage {
     }
 
  ]
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,private viewCtrl: ViewController,) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ItemsPage');
   }
-
+  disMiss() {
+    this.navCtrl.push(HomePage)
+    this.viewCtrl.dismiss();
+  }
 }

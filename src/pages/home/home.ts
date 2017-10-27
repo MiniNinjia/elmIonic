@@ -8,6 +8,7 @@ import {ShopPage} from '../shop/shop'
 import {RegistPage} from "../regist/regist";
 import {ItemsPage} from "../items/items";
 import {DetailsPage} from "../details/details";
+import {FoodsPage} from "../foods/foods";
 
 @Component({
   selector: 'page-home',
@@ -25,19 +26,25 @@ export class HomePage {
     profileModal.present();
   }
  login(){
-    this.navCtrl.push(LoginPage);
+   let modelPage=this.modalCtrl.create(LoginPage)
+   modelPage.present()
   }
   regist(){
-  this.navCtrl.push(RegistPage);
+    let modelPage=this.modalCtrl.create(RegistPage)
+    modelPage.present()
 
 }
   items(){
-    this.navCtrl.push(ItemsPage);
+    let modelPage=this.modalCtrl.create(ItemsPage)
+    modelPage.present()
 
   }
   details(){
-    this.navCtrl.push(DetailsPage);
-
+    let modelPage=this.modalCtrl.create(DetailsPage)
+    modelPage.present();
   }
-
+　foods(){
+   let modelPage=this.modalCtrl.create(FoodsPage)
+   modelPage.present();
+ }
 }

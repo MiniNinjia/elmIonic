@@ -115,6 +115,7 @@ export class IndetailsPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad IndetailsPage');
+
   }
   disMiss() {
     this.navCtrl.push(DetailsPage)

@@ -3,7 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {HomePage} from "../home/home";
 import {ViewController, Content} from 'ionic-angular';
 /**
- * Generated class for the RegistPage page.
+ * Generated class for the FoodsPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -11,19 +11,20 @@ import {ViewController, Content} from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-regist',
-  templateUrl: 'regist.html',
+  selector: 'page-foods',
+  templateUrl: 'foods.html',
 })
-export class RegistPage {
+export class FoodsPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams,private viewCtrl: ViewController,) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad RegistPage');
+    console.log('ionViewDidLoad FoodsPage');
   }
   disMiss() {
     this.navCtrl.push(HomePage)
     this.viewCtrl.dismiss();
   }
+
 }
