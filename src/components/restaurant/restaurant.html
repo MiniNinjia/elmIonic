@@ -1,4 +1,4 @@
-<ion-grid>
+<ion-grid style="background-color: white">
   <ion-row>
     <ion-col col-12 style="border-bottom: solid 1px #f1f1f1" *ngFor="let item of restaurant">
       <ion-grid (click)="click(item?.id)">
@@ -48,7 +48,7 @@
         </ion-row>
       </ion-grid>
     </ion-col>
-    <ion-col col-12 *ngIf="restaurant.length==0">
+    <ion-col col-12 *ngIf="restaurant?.length==0">
       啊哦！没有数据了哦
     </ion-col>
   </ion-row>

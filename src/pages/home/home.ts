@@ -1,14 +1,15 @@
-import {Component} from '@angular/core';
-import {Item, NavController} from 'ionic-angular';
-import { ModalController, NavParams } from 'ionic-angular';
-import { ViewChild } from '@angular/core';
-import { Slides } from 'ionic-angular';
+import {ModalController, NavParams, ViewController, Item, NavController, Slides} from 'ionic-angular';
+import {ViewChild, Component} from '@angular/core';
+
+
 import {LoginPage} from "../login/login";
 import {ShopPage} from '../shop/shop'
 import {RegistPage} from "../regist/regist";
 import {ItemsPage} from "../items/items";
 import {DetailsPage} from "../details/details";
 import {FoodsPage} from "../foods/foods";
+import {SearchPage} from '../search/search'
+import {TabsPage} from '../tabs/tabs'
 
 import 'rxjs/add/operator/toPromise';
 import {RestaurantListPage} from '../restaurant-list/restaurant-list';
@@ -77,10 +78,13 @@ export class HomePage {
     support_ids: null
   };
   loading = true;
+  local: any;
+  @ViewChild('rootTabs') tabRef: any;
 
   constructor(public navCtrl: NavController,
               public modalCtrl: ModalController,
-              public isp: IndexServiceProvider) {
+              public isp: IndexServiceProvider,
+              public viewCtrl: ViewController) {
   }
 
   go(id) {
@@ -88,8 +92,8 @@ export class HomePage {
     profileModal.present();
   }
 
-  goRestaurant(item){
-    const profileModal = this.modalCtrl.create(RestaurantListPage,{item:item});
+  goRestaurant(item) {
+    const profileModal = this.modalCtrl.create(RestaurantListPage, {item: item});
     profileModal.present();
   }
 
@@ -108,6 +112,11 @@ export class HomePage {
     });
     this.getAllRestaurants(0, 5, function () {
     });
+    this.local = localStorage.getItem('local');
+    if (!this.local) {
+
+    }
+    console.log(this.local);
   }
 
   getAllRestaurants(offset, limit, callback) {
@@ -133,26 +142,33 @@ export class HomePage {
       }
     });
   }
- login(){
-   let modelPage=this.modalCtrl.create(LoginPage)
-   modelPage.present()
-  }
-  regist(){
-    let modelPage=this.modalCtrl.create(RegistPage)
-    modelPage.present()
 
-}
-  items(){
-    let modelPage=this.modalCtrl.create(ItemsPage)
-    modelPage.present()
-
+  goSearch() {
+    this.navCtrl.push(SearchPage);
   }
-  details(){
-    let modelPage=this.modalCtrl.create(DetailsPage)
+
+  login() {
+    let modelPage = this.modalCtrl.create(LoginPage);
+    modelPage.present()
+  }
+
+  regist() {
+    let modelPage = this.modalCtrl.create(RegistPage);
+    modelPage.present()
+  }
+
+  items() {
+    let modelPage = this.modalCtrl.create(ItemsPage);
+    modelPage.present()
+  }
+
+  details() {
+    let modelPage = this.modalCtrl.create(DetailsPage);
     modelPage.present();
   }
-　foods(){
-   let modelPage=this.modalCtrl.create(FoodsPage)
-   modelPage.present();
- }
+
+  foods() {
+    let modelPage = this.modalCtrl.create(FoodsPage)
+    modelPage.present();
+  }
 }

@@ -2,7 +2,7 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {HttpClientModule} from '@angular/common/http';
-
+import { FormsModule } from '@angular/forms';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
@@ -48,6 +48,7 @@ import { IndexServiceProvider } from '../providers/index-service/index-service';
 
 import {MyComponent} from '../components/my/my';
 import {RestaurantComponent} from '../components/restaurant/restaurant';
+import { SearchProvider } from '../providers/search/search';
 
 @NgModule({
   declarations: [
@@ -84,10 +85,13 @@ import {RestaurantComponent} from '../components/restaurant/restaurant';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     BrowserAnimationsModule,
     HttpModule,
     HttpClientModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp,{
+      tabsHideOnSubPages: 'true'         //隐藏全部子页面tabs
+    })
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -131,7 +135,8 @@ import {RestaurantComponent} from '../components/restaurant/restaurant';
     ExplainServiceProvider,
     GlobleServiceProvider,
     RestaurantProvider,
-    IndexServiceProvider
+    IndexServiceProvider,
+    SearchProvider
   ]
 })
 export class AppModule {}

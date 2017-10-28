@@ -12,10 +12,4 @@ export class ContactPage {
               public modalCtrl: ModalController,) {
 
   }
-
-  go(id) {
-    const profileModal = this.modalCtrl.create(ShopPage, {shopid: id});
-    profileModal.present();
-  }
-
 }

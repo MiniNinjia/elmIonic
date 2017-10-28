@@ -18,7 +18,7 @@
       </ion-row>
       <ion-row>
         <ion-col style="padding: 0 1em;">
-          <div class="searchBox">
+          <div class="searchBox" (click)="goSearch()">
             <ion-icon name="md-search"></ion-icon>
             搜索商家、商品名称
           </div>
@@ -59,7 +59,6 @@
   </ion-infinite-scroll>
 
 
-  <button ion-button (click)="go()">跳转</button>
   <button ion-button (click)="login()">登陆</button>
   <button ion-button (click)="regist()">注册</button>
   <button ion-button (click)="items()">商品</button>

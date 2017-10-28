@@ -90,6 +90,13 @@ export class ShopPage {
   ionViewDidLoad() {
     this.id = this.navParams.get('shopid');
     this.type = 1;
+    let local = localStorage.getItem('cart' + this.id);
+    if (local) {
+      this.cartData = JSON.parse(local);
+      this.cart_Count = this.cartData.length;
+      this.funSumPrice();
+      this.flag = true;
+    }
 
     this.rs.getRestaurant(this.id, (result) => {
       this.restaurantData = JSON.parse(result._body);
@@ -339,6 +346,7 @@ export class ShopPage {
   }
 
   disMiss() {
+    localStorage.setItem('cart' + this.id, JSON.stringify(this.cartData));
     this.viewCtrl.dismiss();
   }
 }
