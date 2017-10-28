@@ -34,7 +34,7 @@
   <!--<ion-item>-->
 
 
-  <ion-list no-lines>
+  <ion-list no-lines style="padding-left: 5px">
     <ion-item class="activities1" *ngFor="let items of item[0].activities;let i=index">
       <span class="icon_name" style="float: left" [style.backgroundColor]="'#'+items.icon_color">{{items.icon_name}}</span>
       <p class="description" style="float: left;margin-left: 6px">{{items.description}}(APP专享)</p>
@@ -84,9 +84,8 @@
   <!--<ion-item>-->
 
   <ion-item no-lines>
-    <ion-thumbnail item-start>
-      <img src="../../assets/img/cart_nothing.png">
-    </ion-thumbnail>
+    <ion-thumbnail item-start class="imag">
+      <img src="../../assets/imgs/cry1.png"/></ion-thumbnail>
     <ion-list no-lines padding-left="20px">
       <ion-item>监督检查结果：<span style="color: red">差</span></ion-item>
       <ion-item>检查日期：</ion-item>

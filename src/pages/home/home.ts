@@ -9,6 +9,7 @@ import {RegistPage} from "../regist/regist";
 import {ItemsPage} from "../items/items";
 import {DetailsPage} from "../details/details";
 import {FoodsPage} from "../foods/foods";
+import {CityPage} from "../city/city";
 
 @Component({
   selector: 'page-home',
@@ -45,6 +46,10 @@ export class HomePage {
   }
 　foods(){
    let modelPage=this.modalCtrl.create(FoodsPage)
+   modelPage.present();
+ }
+ city(){
+   let modelPage=this.modalCtrl.create(CityPage)
    modelPage.present();
  }
 }

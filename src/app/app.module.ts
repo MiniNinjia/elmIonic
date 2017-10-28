@@ -18,6 +18,8 @@ import {IndetailsPage} from '../pages/indetails/indetails'
 import {SearchPage} from '../pages/search/search'
 import {ShopCartPage} from '../pages/shop-cart/shop-cart'
 import {FoodsPage} from '../pages/foods/foods'
+import {CityPage} from '../pages/city/city'
+import {CitydetailPage} from '../pages/citydetail/citydetail'
 
 import {HttpModule} from '@angular/http';
 
@@ -44,7 +46,9 @@ import { RestaurantProvider } from '../providers/restaurant/restaurant';
     SearchPage,
     ShopPage,
     ShopCartPage,
-    FoodsPage
+    FoodsPage,
+    CityPage,
+    CitydetailPage
 
   ],
   imports: [
@@ -69,7 +73,9 @@ import { RestaurantProvider } from '../providers/restaurant/restaurant';
     DetailsPage,
     IndetailsPage,
     SearchPage,
-    FoodsPage
+    FoodsPage,
+    CityPage,
+    CitydetailPage
   ],
   providers: [
     StatusBar,
@@ -77,9 +83,10 @@ import { RestaurantProvider } from '../providers/restaurant/restaurant';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     FoodServiceProvider,
     GlobleServiceProvider,
-    RestaurantProvider
+    RestaurantProvider,
 
   ]
+
 
 })
 export class AppModule {}
