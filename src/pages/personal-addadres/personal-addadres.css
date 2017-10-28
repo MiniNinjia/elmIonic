@@ -1,19 +1,21 @@
-page-personal-addadres .ion-back {
-  display: flex;
-  text-align: center;
-  justify-content: center; }
-page-personal-addadres .ads {
-  font-size: 2rem;
-  text-align: center;
-  font-weight: 600; }
-page-personal-addadres .inputa {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #c5c5c5;
-  border-radius: 3px;
-  background-color: #f2f2f2;
-  font-size: 1.5rem; }
-page-personal-addadres .add-margin {
-  margin: 0 10px; }
+page-personal-addadres {
+  font-size: 16px; }
+  page-personal-addadres .ion-back {
+    display: flex;
+    text-align: center;
+    justify-content: center; }
+  page-personal-addadres .ads {
+    font-size: 1.2em;
+    text-align: center;
+    font-weight: 600; }
+  page-personal-addadres .inputa {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #c5c5c5;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    font-size: .92em; }
+  page-personal-addadres .add-margin {
+    margin: 0 10px; }
 
 /*# sourceMappingURL=personal-addadres.css.map */

@@ -46,7 +46,8 @@ export class PersonalMessagePage {
  this.navCtrl.push(PersonalNamePage)
   }
   goChangeAdress(){
-    this.navCtrl.push(PersonalChangeaddresPage);
+    this.navCtrl.push(PersonalChangeaddresPage,{udata:this.udata});
+
   }
   goChangePas(){
     this.navCtrl.push(PersonalPasswordPage);

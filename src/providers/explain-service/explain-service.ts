@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient,HttpHeaders,HttpParams,HttpRequest} from '@angular/common/http';
-
+import {GlobleServiceProvider} from '../globle-service/globle-service'
 import 'rxjs/add/operator/toPromise';
 
 /*
@@ -11,16 +11,14 @@ import 'rxjs/add/operator/toPromise';
 */
 @Injectable()
 export class ExplainServiceProvider {
-  url:string='http://cangdu.org:8001/v3/profile/explain';
+  _url = this.glo.serverUrl;
 
-  constructor(  private http:HttpClient) {
+  constructor(  private http:HttpClient,
+                public glo: GlobleServiceProvider) {
     console.log('Hello ExplainServiceProvider Provider');
   }
-
-
-
   getAllExplain():Promise<any>{
-    return this.http.get(this.url).toPromise().then((data)=> data)
+    return this.http.get(this._url+'/V3/profile/explain').toPromise().then((data)=> data)
 
   }
 }

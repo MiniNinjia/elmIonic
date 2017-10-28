@@ -1,24 +1,26 @@
-page-personal-serve .header {
-  background-color: #3190e8; }
-page-personal-serve .kefu {
-  border-right: 1px solid rgba(197, 197, 197, 0.49);
-  border-bottom: 1px solid rgba(197, 197, 197, 0.33);
-  padding: 15px;
-  margin: 0;
-  text-align: center; }
-page-personal-serve .pword {
-  font-size: 1.5rem;
-  color: #333333;
-  padding-left: 7px; }
-page-personal-serve .item-ios {
-  padding: 0;
-  border-bottom: 1px solid rgba(197, 197, 197, 0.33); }
-page-personal-serve .lin {
-  border-bottom: 1px solid rgba(197, 197, 197, 0.33);
-  padding: 10px;
-  color: #9d9d9d;
-  font-size: 2rem; }
-page-personal-serve .pword {
-  color: #666; }
+page-personal-serve {
+  font-size: 16px; }
+  page-personal-serve .header {
+    background-color: #3190e8; }
+  page-personal-serve .kefu {
+    border-right: 1px solid rgba(197, 197, 197, 0.49);
+    border-bottom: 1px solid rgba(197, 197, 197, 0.33);
+    padding: 15px;
+    margin: 0;
+    text-align: center; }
+  page-personal-serve .pword {
+    font-size: .94em;
+    color: #333333;
+    padding-left: 7px; }
+  page-personal-serve .item-ios {
+    padding: 0;
+    border-bottom: 1px solid rgba(197, 197, 197, 0.33); }
+  page-personal-serve .lin {
+    border-bottom: 1px solid rgba(197, 197, 197, 0.33);
+    padding: 10px;
+    color: #9d9d9d;
+    font-size: 1em; }
+  page-personal-serve .pword {
+    color: #666; }
 
 /*# sourceMappingURL=personal-serve.css.map */

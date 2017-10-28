@@ -16,12 +16,13 @@ import {from} from "rxjs/observable/from";
   templateUrl: 'personal-changeaddres.html',
 })
 export class PersonalChangeaddresPage {
-
+  udata:any
   constructor(public navCtrl: NavController,
               public navParams: NavParams,public viewCtrl:ViewController) {
   }
 
   ionViewDidLoad() {
+    this.udata=this.navParams.get('udata');
     console.log('ionViewDidLoad PersonalChangeaddresPage');
   }
   goto(){

@@ -1,29 +1,33 @@
-page-personal-name .ion-back {
-  display: flex;
-  text-align: center;
-  justify-content: center; }
-page-personal-name .ads {
-  font-size: 2rem;
-  text-align: center;
-  font-weight: 600; }
-page-personal-name .item-ios {
-  padding: 0; }
-page-personal-name .add-margin {
-  margin: 7px 7px; }
-  page-personal-name .add-margin .inputa {
+page-personal-name {
+  font-size: 16px; }
+  page-personal-name .ion-back {
+    display: flex;
+    text-align: center;
+    justify-content: center; }
+  page-personal-name .ads {
+    font-size: 1.15em;
+    text-align: center;
+    font-weight: 600; }
+  page-personal-name .item-ios {
+    padding: 0; }
+  page-personal-name .add-margin {
+    margin: 7px 7px; }
+    page-personal-name .add-margin .inputa {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 2px;
+      background-color: #f2f2f2;
+      font-size: 1em; }
+    page-personal-name .add-margin .wordu {
+      font-size: .8em;
+      color: #666; }
+  page-personal-name .btn {
     width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 2px;
-    background-color: #f2f2f2;
-    font-size: 1.7rem; }
-  page-personal-name .add-margin .wordu {
-    font-size: 1.2rem;
-    color: #666; }
-page-personal-name .btn {
-  width: 100%;
-  margin-top: 15px;
-  color: #fff;
-  border-radius: 0; }
+    margin-top: 15px;
+    color: #fff;
+    border-radius: 0; }
+  page-personal-name .button-ios {
+    font-size: 1em; }
 
 /*# sourceMappingURL=personal-name.css.map */

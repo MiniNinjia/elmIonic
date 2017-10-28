@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams,ViewController,ModalController } from 'ionic-angular';
 import {PersonalQuestionPage}from'../personal-question/personal-question'
 import {ExplainServiceProvider}from '../../providers/explain-service/explain-service'
+
 import {PersonalQuestionPage}from'../personal-question/personal-question'
 /**
  * Generated class for the PersonalServePage page.
@@ -25,8 +26,6 @@ export class PersonalServePage {
   question=[];
   questions=[];
   answer:number;
-
-
   ionViewDidLoad() {
     this.explainSer.getAllExplain().then(data=>{
       for(let item in data){

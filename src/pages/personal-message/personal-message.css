@@ -1,45 +1,47 @@
-page-personal-message .header {
-  background-color: #3190e8; }
-page-personal-message ion-row {
-  padding: 0; }
-page-personal-message .item-ios {
-  padding: 0; }
-page-personal-message .itmeBoder {
-  border-top: 1px solid #c5c5c5;
-  margin-top: 10px; }
-page-personal-message .fileI {
-  display: inline-block;
-  width: 55px;
-  height: 55px;
-  float: right;
-  z-index: 55;
-  position: relative;
-  opacity: 0; }
-page-personal-message .fileImg {
-  display: inline-block;
-  width: 55px;
-  height: 55px;
-  float: right;
-  border: 1px solid #c5c5c5;
-  border-radius: 100%;
-  position: absolute;
-  right: 5px; }
-page-personal-message .goto {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #c5c5c5; }
-page-personal-message .tel {
-  float: right;
-  color: #999; }
-page-personal-message .pword {
-  font-size: 1.5rem;
-  color: #333333;
-  padding-left: 10px; }
-page-personal-message .pwor {
-  display: flex;
-  align-items: center; }
-page-personal-message .button-ios-danger {
-  background-color: #d8594b; }
+page-personal-message {
+  font-size: 16px; }
+  page-personal-message .header {
+    background-color: #3190e8; }
+  page-personal-message ion-row {
+    padding: 0; }
+  page-personal-message .item-ios {
+    padding: 0; }
+  page-personal-message .itmeBoder {
+    border-top: 1px solid #c5c5c5;
+    margin-top: 5px; }
+  page-personal-message .fileI {
+    display: inline-block;
+    width: 55px;
+    height: 55px;
+    float: right;
+    z-index: 55;
+    position: relative;
+    opacity: 0; }
+  page-personal-message .fileImg {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    float: right;
+    border: 1px solid #c5c5c5;
+    border-radius: 100%;
+    position: absolute;
+    right: 5px; }
+  page-personal-message .goto {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #c5c5c5; }
+  page-personal-message .tel {
+    float: right;
+    color: #999; }
+  page-personal-message .pword {
+    font-size: .85em;
+    color: #333333;
+    padding-left: 10px; }
+  page-personal-message .pwor {
+    display: flex;
+    align-items: center; }
+  page-personal-message .button-ios-danger {
+    background-color: #d8594b; }
 
 /*# sourceMappingURL=personal-message.css.map */

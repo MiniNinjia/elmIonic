@@ -12,8 +12,6 @@ import 'rxjs/add/operator/map';
 */
 @Injectable()
 export class UserServiceProvider {
-  //url:string='http://cangdu.org:8001/v1/user/id';
-  //address:string='http://cangdu.org:8001/v1/users/id/addresses';
   _url = this.glo.serverUrl;
   constructor(private http:HttpClient,
               public glo: GlobleServiceProvider) {

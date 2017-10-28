@@ -10,7 +10,7 @@
     <ion-col col-5 >
       <ion-icon  name="ios-arrow-back" style="font-size: 3rem;font-weight:400;color: white" (click)="goto()"></ion-icon>
     </ion-col>
-      <ion-col col-7 style="font-size: 2rem;font-weight:600;color: white"> 我的</ion-col>
+      <ion-col col-7 style="font-size: 1.15em;font-weight:600;color: white"> 我的</ion-col>
     </ion-row>
   </ion-grid>
 
@@ -32,14 +32,15 @@
 
         </ion-row>
         <ion-row>
-          <ion-col>
+          <ion-col style="font-size: .73em">
           <ion-icon name="ios-phone-portrait"></ion-icon>
+            <span *ngIf="!userData?.mobile">暂无绑定手机号</span>
             {{userData?.mobile}}
           </ion-col>
         </ion-row>
     </ion-col>
       <ion-col col-2 class="for-ion">
-          <ion-icon  name="ios-arrow-forward" style="font-size: 2rem;font-weight:400;color: white">
+          <ion-icon  name="ios-arrow-forward" style="font-size: 1.15em;font-weight:400;color: white">
         </ion-icon>
       </ion-col>
     </ion-row>

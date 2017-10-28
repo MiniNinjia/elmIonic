@@ -42,11 +42,12 @@ export class PersonalQuestionPage {
         }
 
       }
-      console.log(this.question[4]);
       this.question[4]=this.question[4].replace(/!\[\]\(/g,'<img src=\"');
       this.question[4]=this.question[4].replace(/\)/g,'\">');
       console.log(this.question[4]);
-      this._html.nativeElement.innerHTML=this.question[4];
+      if(this.id===4){
+        this._html.nativeElement.innerHTML=this.question[4];
+      }
     });
   }
   goto(){

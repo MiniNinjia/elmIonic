@@ -1,6 +1,7 @@
 page-personal-changeaddres {
+  font-size: 16px;
   .ads{
-    font-size: 2rem;
+    font-size: 1.2em;
     text-align: center;
     font-weight: 600;
 
@@ -12,8 +13,10 @@ page-personal-changeaddres {
   }
 
   .ads-w{
-  font-size: 1.5rem ;
+  font-size: .9em ;
     padding: 4px;
+    color: #333;
+    font-weight: 400;
 }
   .word{
     border:1px solid rgba(214, 214, 214, 0.57);
@@ -27,7 +30,7 @@ page-personal-changeaddres {
     display: flex;
     text-align: center;
     justify-content: center;
-    font-size: 3rem;
+    font-size: 1.2em;
     color: #999;
   }
 
@@ -52,5 +55,8 @@ page-personal-changeaddres {
   }
   .item-ios{
     padding-left: 5px;
+  }
+  .pword{
+    font-size: .97em;
   }
 }

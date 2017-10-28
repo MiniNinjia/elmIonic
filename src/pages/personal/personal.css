@@ -1,52 +1,56 @@
-page-personal .header {
-  background-color: #3291e8;
-  padding: 0;
-  margin: 0; }
-page-personal .grid {
-  padding: 0; }
-page-personal .uimg {
-  border: 1px solid rgba(222, 237, 255, 0.75);
-  border-radius: 100%; }
-page-personal .user {
-  font-size: 1.7rem;
-  font-weight: 600;
-  color: white; }
-page-personal .for-ion {
-  display: flex;
-  align-items: center;
-  justify-content: center; }
-page-personal .integral {
-  text-align: center;
-  font-size: 1.3rem;
-  background-color: white; }
-  page-personal .integral .ion-boder {
-    border-left: 1px solid rgba(197, 197, 197, 0.47); }
-    page-personal .integral .ion-boder span {
-      font-size: 3rem; }
-    page-personal .integral .ion-boder .span1 {
-      color: #ff9a02; }
-    page-personal .integral .ion-boder .span2 {
-      color: #ff603f; }
-    page-personal .integral .ion-boder .span3 {
-      color: #6bc20d; }
-page-personal .pword {
-  font-size: 1.8rem;
-  color: #333333;
-  letter-spacing: 1px;
-  font-weight: 500; }
-page-personal .card-ss {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #0d81ff; }
-  page-personal .card-ss .card-2 {
-    color: #fc7c54; }
-  page-personal .card-ss .card-3 {
-    color: #ffc637; }
-page-personal .goto {
-  font-size: 2rem;
-  font-weight: 400;
-  color: #c5c5c5;
-  float: right; }
+page-personal {
+  font-size: 16px; }
+  page-personal .header {
+    background-color: #3291e8;
+    padding: 0;
+    margin: 0;
+    border-top: 1px solid #e2e2e2; }
+  page-personal .grid {
+    padding: 0; }
+  page-personal .uimg {
+    border: 1px solid rgba(222, 237, 255, 0.75);
+    border-radius: 100%; }
+  page-personal .user {
+    font-size: 1.15em;
+    font-weight: 600;
+    color: white; }
+  page-personal .for-ion {
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+  page-personal .integral {
+    text-align: center;
+    font-size: .85em;
+    background-color: white; }
+    page-personal .integral .ion-boder {
+      border-left: 1px solid rgba(197, 197, 197, 0.47); }
+      page-personal .integral .ion-boder span {
+        font-size: 2.3em;
+        font-weight: 700; }
+      page-personal .integral .ion-boder .span1 {
+        color: #ff9a02; }
+      page-personal .integral .ion-boder .span2 {
+        color: #ff603f; }
+      page-personal .integral .ion-boder .span3 {
+        color: #6bc20d; }
+  page-personal .pword {
+    font-size: .95em;
+    color: #333333;
+    letter-spacing: 1px;
+    font-weight: 500; }
+  page-personal .card-ss {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0d81ff; }
+    page-personal .card-ss .card-2 {
+      color: #fc7c54; }
+    page-personal .card-ss .card-3 {
+      color: #ffc637; }
+  page-personal .goto {
+    font-size: 1em;
+    font-weight: 400;
+    color: #c5c5c5;
+    float: right; }
 
 /*# sourceMappingURL=personal.css.map */
