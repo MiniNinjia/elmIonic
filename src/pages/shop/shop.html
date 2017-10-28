@@ -36,7 +36,7 @@
           <ion-icon name="md-arrow-dropright"></ion-icon>
         </ion-col>
       </ion-row>
-      <ion-icon style="position: absolute; font-size:2em ; right: 1em;top: 50%;transform: translateY(-50%)" name="ios-arrow-forward-outline"></ion-icon>
+      <ion-icon style="position: absolute; font-size:2em ; right: 1em;top: 50%;transform: translateY(-50%)" name="ios-arrow-forward-outline" (click)="detail()"></ion-icon>
     </ion-grid>
   </div>
 
@@ -46,9 +46,6 @@
     </ion-segment-button>
     <ion-segment-button value="2">
       <span [class.myActivated]="type==2">评价</span>
-    </ion-segment-button>
-    <ion-segment-button value="3">
-      <span [class.myActivated]="type==3">店铺</span>
     </ion-segment-button>
   </ion-segment>
 </ion-header>
@@ -178,7 +175,7 @@
   </div>
   <!------------------------------我的购物车------------------------------>
 </ion-content>
-<ion-footer>
+<ion-footer *ngIf="type==1">
   <ion-grid no-padding>
     <ion-row style="background-color: #505051">
       <ion-col col-3 (click)="showCart()">

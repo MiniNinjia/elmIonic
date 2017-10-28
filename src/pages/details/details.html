@@ -5,8 +5,6 @@
   Ionic pages and navigation.
 -->
 <ion-header style="background-color: #2c9aea;">
-
-  <!--<ion-navbar>-->
   <ion-grid>
     <ion-row>
       <ion-col col-4>
@@ -16,11 +14,9 @@
       </ion-col>
       <ion-col col-4 id="shoptitle">商家详情</ion-col>
       <ion-col col-4></ion-col>
-      <!--</ion-navbar>-->
     </ion-row>
   </ion-grid>
 </ion-header>
-
 <ion-content>
 
   <div class="border">
@@ -31,45 +27,18 @@
       </ion-item>
     </ion-item-group>
   </div>
-  <!--<ion-item>-->
 
 
   <ion-list no-lines>
-    <ion-item class="activities1" *ngFor="let items of item[0].activities;let i=index">
-      <span class="icon_name" style="float: left" [style.backgroundColor]="'#'+items.icon_color">{{items.icon_name}}</span>
-      <p class="description" style="float: left;margin-left: 6px">{{items.description}}(APP专享)</p>
+    <ion-item class="activities1" *ngFor="let items of item?.activities;let i=index">
+      <span class="icon_name" style="float: left" [style.backgroundColor]="'#'+items?.icon_color">{{items?.icon_name}}</span>
+      <p class="description" style="float: left;margin-left: 6px">{{items?.description}}(APP专享)</p>
     </ion-item>
-    <ion-item class="activities1" *ngFor="let items of item[0].supports;let i=index">
-      <span class="icon_name" style="float: left" [style.backgroundColor]="'#'+items.icon_color">{{item[0].supports[i].icon_name}}</span>
-      <p class="description" style="float: left;margin-left: 6px" >{{item[0].supports[i].description}}(APP专享)</p>
+    <ion-item class="activities1" *ngFor="let items of item?.supports;let i=index">
+      <span class="icon_name" style="float: left" [style.backgroundColor]="'#'+items?.icon_color">{{items?.icon_name}}</span>
+      <p class="description" style="float: left;margin-left: 6px" >{{items?.description}}(APP专享)</p>
     </ion-item>
   </ion-list>
-  <!--<ion-item-divider color="light"></ion-item-divider>-->
-
-
-  <!--<div class="border">-->
-  <!--<ion-item-group>-->
-  <!--<ion-item-divider color="light"></ion-item-divider>-->
-  <!--<ion-item>-->
-  <!--<span>食品监督安全公示</span>-->
-  <!--<button  style="font-size: 20px;background-color: transparent;color: black" class="lll" (click)="goo()">-->
-  <!--<ion-icon name="arrow-forward"></ion-icon>-->
-  <!--</button>-->
-  <!--</ion-item>-->
-  <!--</ion-item-group>-->
-  <!--</div>-->
-  <!---->
-  <!--&lt;!&ndash;<ion-item>&ndash;&gt;-->
-
-  <!--<ion-item>-->
-  <!--<ion-thumbnail item-start>-->
-  <!--<img src="../../assets/img/cart_nothing.png">-->
-  <!--</ion-thumbnail>-->
-  <!--<ion-list no-lines>-->
-  <!--<ion-item >监督检查结果：<span style="color: red">差</span></ion-item>-->
-  <!--<ion-item>检查日期：</ion-item>-->
-  <!--</ion-list>-->
-  <!--</ion-item>-->
   <div class="border">
     <ion-item-group>
       <ion-item-divider color="light"></ion-item-divider>
@@ -81,7 +50,6 @@
       </ion-item>
     </ion-item-group>
   </div>
-  <!--<ion-item>-->
 
   <ion-item no-lines>
     <ion-thumbnail item-start>
@@ -102,13 +70,12 @@
       </ion-item>
     </ion-item-group>
   </div>
-  <!--<ion-item>-->
 
   <ion-item>
     <ion-list no-lines>
       <ion-item><p>效果演示</p></ion-item>
-      <ion-item><p>地址：<span>上海市静安区巨鹿路536-1</span></p></ion-item>
-      <ion-item><p>营业时间：<span>[8:30/20:30]</span></p></ion-item>
+      <ion-item><p>地址：<span>{{item?.address}}</span></p></ion-item>
+      <ion-item><p>营业时间：<span>[{{item?.opening_hours}}]</span></p></ion-item>
       <ion-item>
         <p><span>营业执照</span>
           <button style="font-size: 20px;background-color: transparent;color: #c1c1c1" class="lll">
@@ -121,7 +88,6 @@
         <p><span>餐饮服务许可证</span>
           <button style="font-size: 20px;background-color: transparent;color: #c1c1c1" class="lll">
             <ion-icon name="arrow-forward" (click)=" showAlert() "></ion-icon>
-
           </button>
         </p>
       </ion-item>

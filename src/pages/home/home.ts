@@ -157,16 +157,6 @@ export class HomePage {
     modelPage.present()
   }
 
-  items() {
-    let modelPage = this.modalCtrl.create(ItemsPage);
-    modelPage.present()
-  }
-
-  details() {
-    let modelPage = this.modalCtrl.create(DetailsPage);
-    modelPage.present();
-  }
-
   foods() {
     let modelPage = this.modalCtrl.create(FoodsPage)
     modelPage.present();

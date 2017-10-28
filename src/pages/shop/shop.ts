@@ -1,5 +1,14 @@
 import {Component, ViewChild} from '@angular/core';
-import {IonicPage, NavController, NavParams, ViewController, Content, PopoverController} from 'ionic-angular';
+import {
+  IonicPage,
+  NavController,
+  NavParams,
+  ViewController,
+  Content,
+  PopoverController,
+  ModalController,
+  ToastController
+} from 'ionic-angular';
 import {
   trigger,
   state,
@@ -11,7 +20,7 @@ import {
 import {FoodServiceProvider} from '../../providers/food-service/food-service'
 import{RestaurantProvider} from '../../providers/restaurant/restaurant'
 import {GlobleServiceProvider} from '../../providers/globle-service/globle-service'
-import {ToastController} from 'ionic-angular';
+import {DetailsPage} from "../details/details";
 
 /**
  * Generated class for the ShopPage page.
@@ -83,6 +92,7 @@ export class ShopPage {
               public navParams: NavParams,
               public fs: FoodServiceProvider,
               public rs: RestaurantProvider,
+              public modalCtrl: ModalController,
               public glo: GlobleServiceProvider,
               public toastCtrl: ToastController) {
   }
@@ -104,6 +114,24 @@ export class ShopPage {
 
     this.fs.getfood(this.id, (result) => {
       this.foodData = JSON.parse(result._body);
+
+
+      this.cartData.forEach((data, index1) => {
+        this.foodData.forEach((item, index2) => {
+          item.foods.forEach((foods, index3) => {
+            foods.specfoods.forEach((specfoods) => {
+              if (specfoods.food_id == data.id) {
+                if (foods.selectCount) {
+                  this.foodData[index2].foods[index3].selectCount += 1;
+                } else {
+                  this.foodData[index2].foods[index3].selectCount = 1;
+                }
+              }
+            })
+          })
+        })
+      });
+
       setTimeout(() => {
         this.loading = false;
       }, 2000);
@@ -129,6 +157,13 @@ export class ShopPage {
     });
     toast.present();
   }
+
+
+  detail() {
+    let modelPage = this.modalCtrl.create(DetailsPage, {item: this.restaurantData});
+    modelPage.present();
+  }
+
 
   //点击左边菜单
   clickLeft(i, e) {
