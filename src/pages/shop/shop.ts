@@ -21,7 +21,7 @@ import {FoodServiceProvider} from '../../providers/food-service/food-service'
 import{RestaurantProvider} from '../../providers/restaurant/restaurant'
 import {GlobleServiceProvider} from '../../providers/globle-service/globle-service'
 import {DetailsPage} from "../details/details";
-
+import {PayPage} from '../pay/pay'
 /**
  * Generated class for the ShopPage page.
  *
@@ -38,7 +38,8 @@ import {DetailsPage} from "../details/details";
       transition('void => *', [
         animate('.55s', style({
           //transform: 'translateX(-100px)'
-          left: 100 + 'px'
+          // left: 100 + 'px'
+          left: 0
         }))
       ]),
     ]),
@@ -114,17 +115,15 @@ export class ShopPage {
 
     this.fs.getfood(this.id, (result) => {
       this.foodData = JSON.parse(result._body);
-
-
       this.cartData.forEach((data, index1) => {
         this.foodData.forEach((item, index2) => {
           item.foods.forEach((foods, index3) => {
             foods.specfoods.forEach((specfoods) => {
               if (specfoods.food_id == data.id) {
                 if (foods.selectCount) {
-                  this.foodData[index2].foods[index3].selectCount += 1;
+                  this.foodData[index2].foods[index3].selectCount += data.quantity;
                 } else {
-                  this.foodData[index2].foods[index3].selectCount = 1;
+                  this.foodData[index2].foods[index3].selectCount = data.quantity;
                 }
               }
             })
@@ -136,6 +135,7 @@ export class ShopPage {
         this.loading = false;
       }, 2000);
       this.foodData[0] && (this.foodData[0].flag = true);
+
       this.rightList._scrollContent.nativeElement.addEventListener("scroll", (e) => {
         let top = this.rightList._scrollContent.nativeElement.scrollTop;
         let child = this.rightList._scrollContent.nativeElement.firstElementChild.firstElementChild;
@@ -146,6 +146,8 @@ export class ShopPage {
           }
         }
       });
+
+
     })
   }
 
@@ -158,12 +160,10 @@ export class ShopPage {
     toast.present();
   }
 
-
   detail() {
     let modelPage = this.modalCtrl.create(DetailsPage, {item: this.restaurantData});
     modelPage.present();
   }
-
 
   //点击左边菜单
   clickLeft(i, e) {
@@ -244,7 +244,7 @@ export class ShopPage {
         packing_fee: data.packing_fee,
         price: data.price,
         quantity: 1,
-        sku_id: data.specs_name,
+        sku_id: data.sku_id,
         specs: data.specs,
         stock: data.stock,
         j: j,
@@ -331,7 +331,7 @@ export class ShopPage {
         packing_fee: data[this.specSelectIndex].packing_fee,
         price: data[this.specSelectIndex].price,
         quantity: 1,
-        sku_id: data[this.specSelectIndex].specs_name,
+        sku_id: data[this.specSelectIndex].sku_id,
         specs: data[this.specSelectIndex].specs,
         stock: data[this.specSelectIndex].stock,
         j: j,
@@ -378,6 +378,11 @@ export class ShopPage {
     setTimeout(() => {
       this.flag = false;
     }, 500)
+  }
+
+  goPay() {
+    localStorage.setItem('cart' + this.id, JSON.stringify(this.cartData));
+    this.navCtrl.push(PayPage, {data: this.cartData, id: this.id})
   }
 
   disMiss() {
