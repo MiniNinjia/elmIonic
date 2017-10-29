@@ -1,0 +1,44 @@
+page-personal-adddetailaddress {
+  font-size: 16px; }
+  page-personal-adddetailaddress .ion-back {
+    display: flex;
+    text-align: center;
+    justify-content: center; }
+  page-personal-adddetailaddress .ads {
+    font-size: 1.2em;
+    text-align: center;
+    font-weight: 600; }
+  page-personal-adddetailaddress .search {
+    width: 100%;
+    font-size: .9em;
+    font-weight: 600;
+    padding-left: 5px;
+    background-color: #f7f7f7;
+    margin: 7px;
+    border-radius: 3px;
+    border: 1px solid #d2d2d2;
+    height: 40px; }
+  page-personal-adddetailaddress .item-ada {
+    border: 1px solid #ddd;
+    font-size: .9em;
+    color: #969696;
+    padding: 5px; }
+  page-personal-adddetailaddress .qures {
+    background: #fff6e4;
+    font-size: .9em;
+    color: #ff883f;
+    text-align: center;
+    padding: .2rem 0; }
+  page-personal-adddetailaddress .close_icon {
+    position: absolute;
+    right: 1em;
+    top: 50%;
+    transform: translateY(-50%); }
+  page-personal-adddetailaddress .cantfind {
+    width: 100%;
+    text-align: center;
+    font-size: 1em;
+    color: #969696;
+    margin-top: 40%; }
+
+/*# sourceMappingURL=personal-adddetailaddress.css.map */
