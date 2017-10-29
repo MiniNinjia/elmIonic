@@ -4,17 +4,18 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header  style="background-color: #2c9aea;">
+<ion-header style="background-color: #2c9aea;">
 
   <!--<ion-navbar>-->
   <ion-grid>
     <ion-row>
       <ion-col col-4>
-        <button (click)="disMiss()" style="font-size: 20px;background-color: transparent;color: white">
-          <ion-icon name="ios-arrow-back" ></ion-icon>
+        <button *ngIf="length>1" (click)="disMiss()"
+                style="font-size: 20px;background-color: transparent;color: white">
+          <ion-icon name="ios-arrow-back"></ion-icon>
         </button>
       </ion-col>
-      <ion-col col-4  id="shoptitle"  >搜索</ion-col>
+      <ion-col col-4 id="shoptitle">搜索</ion-col>
       <ion-col col-4></ion-col>
       <!--</ion-navbar>-->
     </ion-row>
@@ -23,36 +24,37 @@
 
 <ion-content style="background-color:#f4f4f4">
   <ion-item-group>
-    <!--<ion-item-divider color="light"></ion-item-divider>-->
-    <!--<ion-grid>-->
-      <ion-row style="background-color: white">
-    <ion-col col-9>
-      <!--<ion-input type="text" placeholder="账号"></ion-input>-->
-      <input type="text" placeholder="请输入商家或美食名称" class="search" style="  font-size:1.2em; font-weight:600;padding-left: 5px; background-color: #f7f7f7; margin: 10px;border-radius: 3px;
-  border: 1px solid #d2d2d2;height: 40px">
-    </ion-col>
-        <ion-col col-3   style="text-align: center">
-          <button ion-button style="width:85%;font-size: 1.2em;font-weight: 600;height: 40px;margin-top: 10px;">提交</button>
-        </ion-col>
-      </ion-row>
-    <!--</ion-grid>-->
+    <ion-row style="background-color: white">
+      <ion-col col-9>
+        <input type="text" [(ngModel)]="searchTxt" placeholder="请输入商家或美食名称" class="search">
+        <ion-icon name="close" *ngIf="searchTxt" (click)="nosearch()" class="close_icon"></ion-icon>
+      </ion-col>
+      <ion-col col-3 style="text-align: center">
+        <button ion-button style="width:85%;font-size: 1.2em;font-weight: 600;height: 40px;margin-top: 10px;"
+                (click)="search()">提交
+        </button>
+      </ion-col>
+    </ion-row>
   </ion-item-group>
-  <ion-item-divider color="light">
-    <h2 style="font-weight: 600">搜索历史</h2>
-  </ion-item-divider>
-  <ion-list no-lines>
-    <ion-item style="border-bottom: solid 1px #c6c8cb;">
-      <span style="float: left">dcxsx</span>
-      <ion-icon name="close" style="float: right"></ion-icon>
-    </ion-item>
 
-  <ion-row style="background-color: white;">
-  <ion-col col-4></ion-col>
-  <ion-col col-4>
-    <button ion-button clear style="font-weight: 600;!important;">清空搜索历史</button></ion-col>
-  <ion-col col-4></ion-col>
-</ion-row>
-  <!--<ion-grid>-->
-  </ion-list>
-  <!--</ion-grid>-->
+  <div *ngIf="history?.length>0 && flag==true">
+    <ion-item-divider color="light">
+      <h2 style="font-weight: 600">搜索历史</h2>
+    </ion-item-divider>
+    <ion-list no-lines>
+      <ion-item style="border-bottom: solid 1px #c6c8cb;" *ngFor="let item of history;let i=index" (click)="search(item)">
+        <span style="float: left">{{item}}</span>
+        <ion-icon name="close" style="float: right" (click)="clear(i);$event.stopPropagation()"></ion-icon>
+      </ion-item>
+      <ion-row style="background-color: white;">
+        <ion-col col-4></ion-col>
+        <ion-col col-4>
+          <button ion-button clear style="font-weight: 600;!important;" (click)="clear()">清空搜索历史</button>
+        </ion-col>
+        <ion-col col-4></ion-col>
+      </ion-row>
+    </ion-list>
+  </div>
+
+  <restaurant *ngIf="!flag" [restaurant]="result" (shopid)="go($event)" style="background-color: white"></restaurant>
 </ion-content>

@@ -1,49 +1,64 @@
-<!--<ion-header>-->
-  <!--<ion-navbar>-->
-    <!--<ion-title>Home</ion-title>-->
-  <!--</ion-navbar>-->
-<!--</ion-header>-->
-<!--<ion-header style="background-color: #2c9aea;">-->
-
-  <!--&lt;!&ndash;<ion-navbar>&ndash;&gt;-->
-  <!--<ion-grid>-->
-    <!--<ion-row>-->
-      <!--<ion-col col-4>-->
-      <!--</ion-col>-->
-      <!--<ion-col col-4 id="shoptitle">home</ion-col>-->
-      <!--<ion-col col-4></ion-col>-->
-      <!--&lt;!&ndash;</ion-navbar>&ndash;&gt;-->
-    <!--</ion-row>-->
-  <!--</ion-grid>-->
-<!--</ion-header>-->
-
 <ion-content>
-
-  <ion-grid no-margin no-padding style="background-color: #00a7ff">
-    <ion-row>
-      <ion-col col-8>
-        <ion-item no-lines no-border no-margin style="background-color: #00a7ff;">
-          <h2 style="color: white;
+  <ion-grid no-margin no-padding style="background-color: #f5f5f5">
+    <div style="background-image: linear-gradient(to right,#00a8ff,#0085ff) ">
+      <ion-row>
+        <ion-col col-8>
+          <ion-item no-lines no-border no-margin style="background-color: transparent">
+            <h2 style="color: white;
               font-weight: 700;
               overflow: hidden;
               text-overflow:ellipsis;
               white-space: nowrap;">
-            <ion-icon name="md-locate">
-              吴中区苏州高博软件高博软件
-            </ion-icon>
-          </h2>
-        </ion-item>
+              <ion-icon name="md-locate">
+                吴中区苏州高博软件高博软件
+              </ion-icon>
+            </h2>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col style="padding: 0 1em;">
+          <div class="searchBox" (click)="goSearch()">
+            <ion-icon name="md-search"></ion-icon>
+            搜索商家、商品名称
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col
+          style="margin:0 1em;background-color:transparent; height: 3em;line-height: 3em;white-space:nowrap;overflow:scroll;">
+          <span class="_span" *ngFor="let item of Data?.slides_item">{{item?.name}}</span>
+        </ion-col>
+      </ion-row>
+    </div>
+    <ion-row style="background-color: white;margin-bottom: 1em;">
+      <ion-col>
+        <ion-slides pager loop style="padding-bottom: 1em;">
+          <ion-slide *ngFor="let slides of Data?.slides">
+            <a class="slideItem" *ngFor="let item of slides" (click)="goRestaurant(item)">
+              <div class="slideItemContainer">
+                <img src="https://fuss10.elemecdn.com{{item?.image_url}}">
+              </div>
+              <a class="slideItemText">{{item?.title}}</a>
+            </a>
+          </ion-slide>
+        </ion-slides>
       </ion-col>
     </ion-row>
-    <ion-row>
-      <ion-col>
-
-      </ion-col>
+    <ion-row style="background-color: white;">
+      <p class="paddingLeft_1em">
+        <ion-icon name="ios-home-outline"></ion-icon>
+        附近商家
+      </p>
+      <restaurant [restaurant]="Data?.restaurant" (shopid)="go($event)"></restaurant>
     </ion-row>
   </ion-grid>
+  <my [loading]="loading"></my>
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 
 
-  <button ion-button (click)="go()">跳转</button>
   <button ion-button (click)="login()">登陆</button>
   <button ion-button (click)="regist()">注册</button>
   <button ion-button (click)="items()">商品</button>

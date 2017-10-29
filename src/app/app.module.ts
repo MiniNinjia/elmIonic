@@ -2,10 +2,9 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {HttpClientModule} from '@angular/common/http';
-
+import { FormsModule } from '@angular/forms';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
-//import {HttpModule} from '@angular/http';
 
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
@@ -28,6 +27,7 @@ import {DetailsPage} from '../pages/details/details'
 import {IndetailsPage} from '../pages/indetails/indetails'
 import {SearchPage} from '../pages/search/search'
 import {ShopCartPage} from '../pages/shop-cart/shop-cart'
+import {RestaurantListPage} from '../pages/restaurant-list/restaurant-list'
 import {FoodsPage} from '../pages/foods/foods'
 
 import {HttpModule} from '@angular/http';
@@ -43,6 +43,13 @@ import {UserServiceProvider}from'../providers/user-service/user-service'
 
 
 import { RestaurantProvider } from '../providers/restaurant/restaurant';
+import { IndexServiceProvider } from '../providers/index-service/index-service';
+
+
+import {MyComponent} from '../components/my/my';
+import {RestaurantComponent} from '../components/restaurant/restaurant';
+import { SearchProvider } from '../providers/search/search';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -70,15 +77,21 @@ import { RestaurantProvider } from '../providers/restaurant/restaurant';
     SearchPage,
     ShopPage,
     ShopCartPage,
+    MyComponent,
+    RestaurantComponent,
+    RestaurantListPage,
     FoodsPage
 
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     BrowserAnimationsModule,
     HttpModule,
     HttpClientModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp,{
+      tabsHideOnSubPages: 'true'         //隐藏全部子页面tabs
+    })
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -107,7 +120,10 @@ import { RestaurantProvider } from '../providers/restaurant/restaurant';
     PersonalAddadresPage,
     PersonalPasswordPage,
     PersonalQuestionPage,
-    PersonalNamePage
+    PersonalNamePage,
+    MyComponent,
+    RestaurantComponent,
+    RestaurantListPage,
   ],
   providers: [
     StatusBar,
@@ -118,8 +134,9 @@ import { RestaurantProvider } from '../providers/restaurant/restaurant';
     UserServiceProvider,
     ExplainServiceProvider,
     GlobleServiceProvider,
-    RestaurantProvider
-
+    RestaurantProvider,
+    IndexServiceProvider,
+    SearchProvider
   ]
 })
 export class AppModule {}

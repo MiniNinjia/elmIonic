@@ -18,7 +18,7 @@
       </ion-row>
       <ion-row>
         <ion-col col-3>
-          <img src="{{_img}}15e386ec1875697.jpeg" class="headerImg">
+          <img src="{{_img}}{{restaurantData?.image_path}}" class="headerImg">
         </ion-col>
         <ion-col col-9 style="color: white">
           <h4><strong>{{restaurantData?.name}}</strong></h4>
@@ -232,16 +232,6 @@
 </div>
 <!------------------------------多规格商品加入购物车--------------------------->
 
-<!----------------------------------加载动画--------------------------->
-<div class="loading" *ngIf="loading">
-  <div class="loading_container">
-    <div #loading_img class="loading_img">
 
-    </div>
-    <svg class="load_ellipse" xmlns="http://www.w3.org/2000/svg" version="1.1">
-      <ellipse cx="26" cy="10" rx="26" ry="10" style="fill:#ddd;stroke:none;"></ellipse>
-    </svg>
-  </div>
-</div>
-<!----------------------------------加载动画--------------------------->
+<my [loading]="loading" ></my>
 

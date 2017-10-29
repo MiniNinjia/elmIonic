@@ -1,0 +1,21 @@
+<!-- Generated template for the ShopSpecModalComponent component -->
+<div class="madol_container">
+  <div class="main_container">
+      <header>
+        <h4 class="ellipsis">123123</h4>
+        <ion-icon name="ios-close" class="icon" style=""></ion-icon>
+      </header>
+      <div class="btn_container">
+            <h5>规格</h5>
+        <button class="btn" *ngFor="let item of madolData.data">
+          {{item.specs_name}}
+        </button>
+      </div>
+    <footer class="myfooter">
+        <span class="right_col_item_price price"><span class="price_icon">￥</span>12</span>
+      <button ion-button class="modal_btn">
+        加入购物车
+      </button>
+    </footer>
+  </div>
+</div>

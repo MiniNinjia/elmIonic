@@ -1,37 +1,9 @@
 @charset "UTF-8";
-page-home .searchBox {
-  height: 2.5em;
-  width: 100%;
-  line-height: 2.5em;
-  vertical-align: middle;
-  text-align: center;
-  background-color: white; }
-page-home ._span {
-  padding-right: 1em;
-  color: white; }
-page-home .slideItem {
-  width: 25%;
-  margin-top: 0.5em;
-  display: block;
-  float: left; }
-page-home .slideItemContainer {
-  position: relative;
-  display: inline-block; }
-page-home .slideItemContainer img {
-  width: 45%; }
-page-home .slideItemText {
-  font-size: 0.5em;
-  color: #777777; }
-page-home .swiper-pagination-bullets {
-  bottom: 0 !important; }
-page-home .paddingLeft_1em {
-  padding-left: 1em;
-  color: #999; }
-page-home .img_container {
+restaurant .img_container {
   width: 90%; }
-page-home .img_container img {
+restaurant .img_container img {
   width: 100%; }
-page-home .shoptitle {
+restaurant .shoptitle {
   width: 10em;
   color: #333;
   font: 1em PingFangSC-Regular;
@@ -40,7 +12,7 @@ page-home .shoptitle {
   text-overflow: ellipsis;
   white-space: nowrap;
   margin: 0; }
-page-home .shoptitle:before {
+restaurant .shoptitle:before {
   content: "品牌";
   display: inline-block;
   font-size: 0.8em;
@@ -50,7 +22,7 @@ page-home .shoptitle:before {
   background-color: #ffd930;
   border-radius: 0.11em;
   margin-right: 0.5em; }
-page-home .supports {
+restaurant .supports {
   margin-right: 0.2em;
   display: inline-block;
   font: 0.5em/1 PingFangSC-Regular;
@@ -59,67 +31,67 @@ page-home .supports {
   box-sizing: border-box;
   color: #999;
   transform: scale(0.9); }
-page-home .rating_order_num {
+restaurant .rating_order_num {
   display: flex;
   justify-content: space-between;
   margin: 0.8em 0 0 0;
   font-size: 0.5em; }
-page-home .fee_distance {
+restaurant .fee_distance {
   display: flex;
   justify-content: space-between;
   margin: 0.8em 0 0 0;
   font-size: 0.5em;
   font-weight: 400;
   color: #666; }
-page-home .delivery_style {
+restaurant .delivery_style {
   transform: scale(0.7);
   font-size: 0.5em; }
-page-home .delivery_style_left {
+restaurant .delivery_style_left {
   color: white;
   border: 1px solid #00a7ff;
   background-color: #00a7ff;
   box-sizing: border-box; }
-page-home .delivery_style_right {
+restaurant .delivery_style_right {
   color: #00a7ff;
   border: 1px solid #00a7ff;
   background-color: white;
   box-sizing: border-box; }
-page-home .time {
+restaurant .time {
   color: #3190e8; }
-page-home .distance_time {
+restaurant .distance_time {
   transform: scale(0.8);
   font-size: 0.5em; }
-page-home .rate_container {
+restaurant .rate_container {
   position: relative;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   float: left;
   margin-right: 0.5em; }
-page-home .unstar img,
-page-home .star img {
+restaurant .unstar img,
+restaurant .star img {
   width: 0.8em;
   height: 0.8em;
   box-sizing: border-box;
   display: inline-block; }
-page-home .star {
+restaurant .star {
   position: absolute;
   top: 0;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap; }
-page-home .rate_number {
+restaurant .rate_number {
   color: #ff6000;
   padding: 0 0.5em; }
-page-home .sale_count {
+restaurant .sale_count {
   color: #666;
   display: inline-block;
   font-size: 0.5em;
   transform: scale(0.9); }
-page-home .actived_container {
+restaurant .actived_container {
   display: flex;
   justify-content: space-between; }
-page-home .actived {
+restaurant .actived {
   margin: 0; }
 
-/*# sourceMappingURL=home.css.map */
+/*# sourceMappingURL=restaurant.css.map */
