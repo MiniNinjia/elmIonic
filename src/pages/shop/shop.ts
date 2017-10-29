@@ -1,5 +1,14 @@
 import {Component, ViewChild} from '@angular/core';
-import {IonicPage, NavController, NavParams, ViewController, Content, PopoverController} from 'ionic-angular';
+import {
+  IonicPage,
+  NavController,
+  NavParams,
+  ViewController,
+  Content,
+  PopoverController,
+  ModalController,
+  ToastController
+} from 'ionic-angular';
 import {
   trigger,
   state,
@@ -11,7 +20,7 @@ import {
 import {FoodServiceProvider} from '../../providers/food-service/food-service'
 import{RestaurantProvider} from '../../providers/restaurant/restaurant'
 import {GlobleServiceProvider} from '../../providers/globle-service/globle-service'
-import {ToastController} from 'ionic-angular';
+import {DetailsPage} from "../details/details";
 
 /**
  * Generated class for the ShopPage page.
@@ -52,8 +61,8 @@ export class ShopPage {
   @ViewChild('ball_el') el_ball: any;
   @ViewChild('rightList') rightList: any;
   @ViewChild('leftList') leftList: any;
-  @ViewChild('loading_img') loading_img: any;
   @ViewChild('_myHeader') _myHeader: any;
+  id: any;//商店的id
   type: any;//商品。评价。店铺
   flag: boolean;//购物车的状态，true为有东西。false为空
   ballList = [];//小球的集合 。x:小球的X坐标;y:小球的Y坐标。左下角为起点
@@ -83,24 +92,50 @@ export class ShopPage {
               public navParams: NavParams,
               public fs: FoodServiceProvider,
               public rs: RestaurantProvider,
+              public modalCtrl: ModalController,
               public glo: GlobleServiceProvider,
               public toastCtrl: ToastController) {
   }
+
   ionViewDidLoad() {
+    this.id = this.navParams.get('shopid');
     this.type = 1;
-    let style = this.loading_img.nativeElement.style;
-    setInterval(() => {
-      style.backgroundPositionY = -new Date().valueOf() % 7 * 5 + 'rem';
-    }, 500);
-    this.rs.getRestaurant('1', (result) => {
+    let local = localStorage.getItem('cart' + this.id);
+    if (local) {
+      this.cartData = JSON.parse(local);
+      this.cart_Count = this.cartData.length;
+      this.funSumPrice();
+      this.flag = true;
+    }
+
+    this.rs.getRestaurant(this.id, (result) => {
       this.restaurantData = JSON.parse(result._body);
     });
-    this.fs.getfood('1', (result) => {
+
+    this.fs.getfood(this.id, (result) => {
       this.foodData = JSON.parse(result._body);
+
+
+      this.cartData.forEach((data, index1) => {
+        this.foodData.forEach((item, index2) => {
+          item.foods.forEach((foods, index3) => {
+            foods.specfoods.forEach((specfoods) => {
+              if (specfoods.food_id == data.id) {
+                if (foods.selectCount) {
+                  this.foodData[index2].foods[index3].selectCount += 1;
+                } else {
+                  this.foodData[index2].foods[index3].selectCount = 1;
+                }
+              }
+            })
+          })
+        })
+      });
+
       setTimeout(() => {
         this.loading = false;
       }, 2000);
-      this.foodData[0].flag = true;
+      this.foodData[0] && (this.foodData[0].flag = true);
       this.rightList._scrollContent.nativeElement.addEventListener("scroll", (e) => {
         let top = this.rightList._scrollContent.nativeElement.scrollTop;
         let child = this.rightList._scrollContent.nativeElement.firstElementChild.firstElementChild;
@@ -122,6 +157,13 @@ export class ShopPage {
     });
     toast.present();
   }
+
+
+  detail() {
+    let modelPage = this.modalCtrl.create(DetailsPage, {item: this.restaurantData});
+    modelPage.present();
+  }
+
 
   //点击左边菜单
   clickLeft(i, e) {
@@ -339,6 +381,7 @@ export class ShopPage {
   }
 
   disMiss() {
+    localStorage.setItem('cart' + this.id, JSON.stringify(this.cartData));
     this.viewCtrl.dismiss();
   }
 }

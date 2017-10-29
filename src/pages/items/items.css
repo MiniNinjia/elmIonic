@@ -1,0 +1,53 @@
+.yellow {
+  background-color: #ffdf2e;
+  text-align: center;
+  border-radius: 3px; }
+
+.word {
+  font-weight: 600; }
+
+.bzp {
+  float: right;
+  color: #bcbcbc; }
+
+.white {
+  background-color: white;
+  border: 1px solid #3190e8;
+  border-radius: 3px;
+  color: #3190e8;
+  float: right;
+  margin-left: 5px;
+  font-size: 0.7em; }
+
+.blue {
+  background-color: #3190e8;
+  color: white;
+  border-radius: 3px;
+  float: right;
+  font-size: 0.7em; }
+
+.qisong {
+  font-size: 0.8em;
+  color: #b0b0b0; }
+
+.yueshou {
+  font-size: 0.8em;
+  color: #b0b0b0; }
+
+.juli {
+  float: right;
+  font-size: 0.8em; }
+
+.shijian {
+  color: #2c9aea; }
+
+.fenlei, .paixu, .shaixuan {
+  text-align: center;
+  font-size: 1.1em;
+  border-right: 1px solid #e3e3e3;
+  margin-top: 10px; }
+
+.shaixuan {
+  border-right: none; }
+
+/*# sourceMappingURL=items.css.map */

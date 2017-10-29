@@ -1,2 +1,163 @@
 page-home {
+  .searchBox {
+    height: 2.5em;
+    width: 100%;
+    line-height: 2.5em;
+    vertical-align: middle;
+    text-align: center;
+    background-color: white;
+  }
+  ._span {
+    padding-right: 1em;
+    color: white;
+  }
+  .slideItem {
+    width: 25%;
+    margin-top: 0.5em;
+    display: block;
+    float: left;
+  }
+  .slideItemContainer {
+    position: relative;
+    display: inline-block;
+  }
+  .slideItemContainer img {
+    width: 45%;
+  }
+  .slideItemText {
+    font-size: 0.5em;
+    color: #777777;
+  }
+  .swiper-pagination-bullets {
+    bottom: 0 !important;
+  }
+  .paddingLeft_1em {
+    padding-left: 1em;
+    color: #999;
+  }
+
+
+
+
+
+
+  ////////////////////////////////////////////////////////////////////////
+  .img_container {
+    width: 90%;
+  }
+  .img_container img {
+    width: 100%;
+  }
+  .shoptitle {
+    width: 10em;
+    color: #333;
+    font: 1em PingFangSC-Regular;
+    font-weight: 700;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin: 0;
+  }
+  .shoptitle:before {
+    content: "品牌";
+    display: inline-block;
+    font-size: 0.8em;
+    padding: 0.1em 0;
+    line-height: 1em;
+    color: #333;
+    background-color: #ffd930;
+    border-radius: 0.11em;
+    margin-right: 0.5em;
+  }
+  .supports {
+    margin-right: 0.2em;
+    display: inline-block;
+    font: 0.5em/1 PingFangSC-Regular;
+    border: solid 1px #f1f1f1;
+    padding: 0;
+    box-sizing: border-box;
+    color: #999;
+    transform: scale(0.9);
+  }
+  .rating_order_num {
+    display: flex;
+    justify-content: space-between;
+    margin: 0.8em 0 0 0;
+    font-size: 0.5em;
+  }
+  .fee_distance {
+    //border-bottom: solid 1px #f1f1f1;
+    display: flex;
+    justify-content: space-between;
+    margin: 0.8em 0 0 0;
+    font-size: 0.5em;
+    font-weight: 400;
+    color: #666;
+  }
+  .delivery_style {
+    transform: scale(0.7);
+    font-size: 0.5em;
+  }
+  .delivery_style_left {
+    color: white;
+    border: 1px solid #00a7ff;
+    background-color: #00a7ff;
+    box-sizing: border-box;
+  }
+  .delivery_style_right {
+    color: #00a7ff;
+    border: 1px solid #00a7ff;
+    background-color: white;
+    box-sizing: border-box;
+  }
+  .time{
+    color: #3190e8;
+  }
+  .distance_time{
+    transform: scale(0.8);
+    font-size: 0.5em;
+  }
+  .rate_container{
+    position: relative;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    float: left;
+    margin-right: 0.5em;
+  }
+  .unstar img,
+  .star img{
+    width: 0.8em;
+    height: 0.8em;
+    box-sizing: border-box;
+    display:inline-block
+  }
+  .star{
+    position: absolute;
+    top:0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .rate_number{
+    color: #ff6000;
+    padding: 0 0.5em;
+
+  }
+  .sale_count{
+    color:#666;
+    display: inline-block;
+    font-size: 0.5em;
+    transform: scale(0.9);
+  }
+  .actived_container{
+    display: flex;
+    justify-content:space-between
+  }
+  .actived{
+    margin: 0;
+  }
+
+
+
 }

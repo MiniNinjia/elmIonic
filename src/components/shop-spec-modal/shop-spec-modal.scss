@@ -1,0 +1,64 @@
+shop-spec-modal {
+  .madol_container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(80, 80, 81, 0.43);
+    z-index: 1000
+  }
+  .main_container {
+    width: 70%;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border-radius: 0.5em;
+  }
+  .ellipsis {
+    font-size: 1.4em;
+    color: #222;
+    font-weight: 400;
+    text-align: center;
+    padding: .5em;
+  }
+  .icon {
+    position: absolute;
+    right: 0.4em;
+    top: 0.2em;
+    font-size: 2em;
+  }
+  .myfooter{
+    width: 100%;
+    padding: 0.2em 0.5em;
+    background-color: #e8e8e8;
+  }
+  .modal_btn{
+    float: right;
+    height: 2em !important;
+  }
+  .myfooter:after{
+    content:'';
+    display: block;
+    clear: both;
+  }
+  .price{
+    height: 2em;
+    line-height: 2.4em !important;
+  }
+  .btn_container{
+    width: 100%;
+    padding:0 1.2em 1.2em;
+  }
+  .btn{
+    padding: 0.6em 0.7em;
+    background-color: white;
+    border-radius: 0.4em;
+    border: solid 1px #e7e7e7;
+  }
+  .btn_actived{
+    border: solid 1px #3994e9;
+  }
+}

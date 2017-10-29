@@ -1,0 +1,14 @@
+page-details .border {
+  border-bottom: solid 1px #c6c8cb; }
+page-details .icon_name {
+  color: white;
+  border-radius: 3px;
+  font-weight: 600; }
+page-details .lll {
+  float: right; }
+page-details #shoptitle {
+  text-align: center;
+  color: white;
+  font-size: 1.5em; }
+
+/*# sourceMappingURL=details.css.map */

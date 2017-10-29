@@ -1,0 +1,104 @@
+<!--
+  Generated template for the RestaurantListPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-grid no-padding style="background-color:rgb(55, 199, 183);;">
+    <ion-row style="background-color:#00a8ff;">
+      <button (click)="disMiss()" class="backBtn">
+        <h6 style="margin: 0.5em 0;    font-size: 1.5em;">
+          <ion-icon name="ios-arrow-back"></ion-icon>
+        </h6>
+      </button>
+      <ion-col col-12 style=" text-align:center;">
+        <h6 class="title">{{title}}</h6>
+      </ion-col>
+    </ion-row>
+    <ion-row class="cate">
+      <ion-col col-4 (click)="cate(1);$event.stopPropagation()">分类
+        <ion-icon name="md-arrow-dropdown"
+                  [style.transform]="flag==1?'rotate(180deg)':'rotate(0deg)'"
+                  style="transition:transform 500ms"></ion-icon>
+      </ion-col>
+      <ion-col col-4
+               (click)="cate(2);$event.stopPropagation()"
+               style="border-left:#f1f1f1 1px solid;border-right:#f1f1f1 1px solid;">排序
+        <ion-icon name="md-arrow-dropdown"
+                  [style.transform]="flag==2?'rotate(180deg)':'rotate(0deg)'"
+                  style="transition:transform 500ms"></ion-icon>
+      </ion-col>
+      <ion-col col-4 (click)="cate(3);$event.stopPropagation()">筛选
+        <ion-icon name="md-arrow-dropdown"
+                  [style.transform]="flag==3?'rotate(180deg)':'rotate(0deg)'"
+                  style="transition:transform 500ms"></ion-icon>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-header>
+
+<ion-content>
+  <ion-content no-margin no-padding>
+    <restaurant [restaurant]="Data?.restaurant" (shopid)="go($event)"></restaurant>
+  </ion-content>
+  <div class="_container" *ngIf="flag>0" (click)="cate(0)">
+    <ion-grid no-padding *ngIf="flag==1" style="max-height: 60%">
+      <ion-row>
+        <ion-col col-5 style="background-color: #f1f1f1">
+          <ul class="menu_left_ul">
+            <li class="menu_left"
+                *ngFor="let data of Data?.category;let i =index"
+                [class.actived]="i==actived"
+                (click)="selectLeft(i);$event.stopPropagation()">
+              <span class="menu_left_name">{{data?.name}}</span>
+              <span class="menu_left_num">{{data?.count}}</span>
+            </li>
+          </ul>
+        </ion-col>
+        <ion-col col-7>
+          <ul class="list_right_ul">
+            <li class="list_right"
+                *ngFor="let item of sub_categories;let i =index"
+                (click)="selectRight(item?.id,i);$event.stopPropagation()">
+              <span>{{item?.name}}</span>
+              <span>{{item?.count}}</span>
+            </li>
+          </ul>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-grid no-padding *ngIf="flag==2" (click)="cate(0)">
+      <ion-row style="background-color: white">
+        <ion-col class="sort_list_col" col-12>
+          <img class="sort_img" src="../../assets/img/sort1.svg">
+          <p class="sort_text">智能排序</p>
+        </ion-col>
+        <ion-col class="sort_list_col" col-12>
+          <img class="sort_img" src="../../assets/img/sort2.svg">
+          <p class="sort_text">销量最高</p>
+        </ion-col>
+        <ion-col class="sort_list_col" col-12>
+          <img class="sort_img" src="../../assets/img/sort3.svg">
+          <p class="sort_text">配送速度最快</p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-grid no-padding *ngIf="flag==3" (click)="cate(0)" style="background-color: white">
+      <ion-row>
+        <ion-col col-12 style="border-bottom: solid 1px #e4e4e4;background-color:#fafafa">
+          <span class="_header">配送方式</span>
+        </ion-col>
+        <ion-col col-4 class="sort_container"><span>1</span></ion-col>
+        <ion-col col-4 class="sort_container border"><span>2</span></ion-col>
+        <ion-col col-4 class="sort_container"><span>3</span></ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <my [loading]="loading"></my>
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>
+
+

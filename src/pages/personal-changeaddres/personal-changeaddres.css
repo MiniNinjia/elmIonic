@@ -1,0 +1,41 @@
+page-personal-changeaddres .ads {
+  font-size: 2rem;
+  text-align: center;
+  font-weight: 600; }
+page-personal-changeaddres .ion-back {
+  display: flex;
+  text-align: center;
+  justify-content: center; }
+page-personal-changeaddres .ads-w {
+  font-size: 1.5rem;
+  padding: 4px; }
+page-personal-changeaddres .word {
+  border: 1px solid rgba(214, 214, 214, 0.57);
+  border-left: 0;
+  border-right: 0;
+  background-color: #fbf4c0;
+  margin-top: 10px;
+  word-spacing: 1px; }
+page-personal-changeaddres .ads-icon {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  font-size: 3rem;
+  color: #999; }
+page-personal-changeaddres .goto {
+  color: #c5c5c5;
+  float: right; }
+page-personal-changeaddres .add {
+  margin-top: 13px;
+  border: 1px solid rgba(215, 215, 215, 0.73);
+  box-shadow: #c5c5c5; }
+page-personal-changeaddres .item-ios.item-block .item-inner {
+  padding: 0; }
+page-personal-changeaddres .item-wrapper {
+  height: 45px; }
+page-personal-changeaddres .input-wrapper {
+  height: 45px; }
+page-personal-changeaddres .item-ios {
+  padding-left: 5px; }
+
+/*# sourceMappingURL=personal-changeaddres.css.map */

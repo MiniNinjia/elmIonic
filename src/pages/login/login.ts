@@ -1,12 +1,12 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {ViewChild} from '@angular/core';
-import {ViewController, Content,App} from 'ionic-angular';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { AlertController } from 'ionic-angular';
-import { TabsPage } from '../tabs/tabs';
+import {ViewController, Content, App} from 'ionic-angular';
+import {IonicPage, NavController, NavParams} from 'ionic-angular';
+import {AlertController} from 'ionic-angular';
+import {TabsPage} from '../tabs/tabs';
 import {HomePage} from "../home/home";
-import { FormBuilder, Validators, FormGroup } from '@angular/forms';
-import {ToastController } from 'ionic-angular';
+import {FormBuilder, Validators, FormGroup} from '@angular/forms';
+import {ToastController} from 'ionic-angular';
 // import { Storage } from '@ionic/storage';
 
 
@@ -30,28 +30,29 @@ export class LoginPage {
   loginForm: FormGroup;
   username: any;
   password: any;
-  constructor(   private navCtrl: NavController,
-                 private navParams: NavParams,
-                 private alertCtrl: AlertController,
-                 private toastCtrl: ToastController,
-                 private viewCtrl: ViewController,
-                 private appCtrl: App,
-                 // private storage:Storage,
-                 // private userSer:UsersService,
-                 private formBuilder: FormBuilder) {
-      this.loginForm = formBuilder.group({
+
+  constructor(private navCtrl: NavController,
+              private navParams: NavParams,
+              private alertCtrl: AlertController,
+              private toastCtrl: ToastController,
+              private viewCtrl: ViewController,
+              private appCtrl: App,
+              // private storage:Storage,
+              // private userSer:UsersService,
+              private formBuilder: FormBuilder) {
+    this.loginForm = formBuilder.group({
       telephone: ['', Validators.compose([Validators.minLength(11), Validators.maxLength(11), Validators.required, Validators.pattern("^(13[0-9]|15[012356789]|17[03678]|18[0-9]|14[57])[0-9]{8}$")])],
       password: ['', Validators.compose([Validators.required, Validators.minLength(6)])]
     });
-      this.username = this.loginForm.controls['telephone'];
-      this.password = this.loginForm.controls['password'];
+    this.username = this.loginForm.controls['telephone'];
+    this.password = this.loginForm.controls['password'];
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginPage');
+
   }
+
   disMiss() {
-    this.navCtrl.push(HomePage)
     this.viewCtrl.dismiss();
   }
 }
