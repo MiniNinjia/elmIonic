@@ -1,5 +1,5 @@
-import {Component} from '@angular/core';
-import {IonicPage, NavController, NavParams} from 'ionic-angular';
+import { Component } from '@angular/core';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import {HomePage} from "../home/home";
 import {DetailsPage} from "../details/details";
 import {ViewController, Content} from 'ionic-angular';
@@ -110,17 +110,15 @@ export class IndetailsPage {
     }
 
   ]
-
-  constructor(public navCtrl: NavController,
-              public navParams: NavParams,
-              private viewCtrl: ViewController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,private viewCtrl: ViewController) {
   }
 
   ionViewDidLoad() {
-    this.item = this.navParams.get('item');
-  }
+    console.log('ionViewDidLoad IndetailsPage');
 
+  }
   disMiss() {
+    this.navCtrl.push(DetailsPage)
     this.viewCtrl.dismiss();
   }
 

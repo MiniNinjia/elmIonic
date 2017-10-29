@@ -1,12 +1,15 @@
-page-details .border {
+.border {
   border-bottom: solid 1px #c6c8cb; }
-page-details .icon_name {
+
+.icon_name {
   color: white;
   border-radius: 3px;
   font-weight: 600; }
-page-details .lll {
+
+.lll {
   float: right; }
-page-details #shoptitle {
+
+#shoptitle {
   text-align: center;
   color: white;
   font-size: 1.5em; }

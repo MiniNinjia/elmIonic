@@ -37,7 +37,6 @@ export class PersonalPage {
   ionViewDidLoad() {
     this.userSer.getUsermessage(7527).then((data) => {
       this.userData=data;
-      console.log(this.userData.username)
     })
   };
 goto(){
@@ -51,7 +50,7 @@ goto(){
   goServe(){
     let modelPage=this.modalCtrl.create(PersonalServePage);
     modelPage.onDidDismiss(() => {
-      console.log('hfjkh');
+      //console.log('hfjkh');
     });
 
     modelPage.present();

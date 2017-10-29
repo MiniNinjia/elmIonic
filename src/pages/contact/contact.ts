@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import { NavController,ModalController,ViewController } from 'ionic-angular';
+import { NavController,ModalController } from 'ionic-angular';
 import {ShopPage} from '../shop/shop'
-import {HomePage} from "../home/home";
 
 @Component({
   selector: 'page-contact',
@@ -10,12 +9,7 @@ import {HomePage} from "../home/home";
 export class ContactPage {
 
   constructor(public navCtrl: NavController,
-              public modalCtrl: ModalController,
-              private viewCtrl: ViewController,) {
+              public modalCtrl: ModalController,) {
 
-  }
-  disMiss(){
-    this.navCtrl.push(HomePage)
-    this.viewCtrl.dismiss();
   }
 }

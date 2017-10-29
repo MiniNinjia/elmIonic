@@ -17,14 +17,33 @@
   </ion-col>
 </ion-row>
 
-  <ion-row class="word" >
+  <ion-row class="word" *ngFor="let item of uaddres ;let i=index">
+    <ion-col col-12>
+      <ion-row style=" background-color:#fbf4c0;" *ngIf="i===0">
       <ion-col col-11 >
-      <ion-row class="ads-w">百年职业学院</ion-row>
-      <ion-row class="ads-w">1857578555</ion-row>
+      <ion-row class="ads-w">{{uaddres[i]?.address}}</ion-row>
+      <ion-row class="ads-w">{{uaddres[i]?.phone}}</ion-row>
     </ion-col>
     <ion-col col-1 class="ads-icon">
       <ion-icon name="ios-close" ></ion-icon>
     </ion-col>
+      </ion-row>
+
+
+
+      <ion-row style=" background-color:#f5f5f5;" *ngIf="!i==0">
+        <ion-col col-11 >
+          <ion-row class="ads-w">{{uaddres[i]?.address}}</ion-row>
+          <ion-row class="ads-w">{{uaddres[i]?.phone}}</ion-row>
+        </ion-col>
+        <ion-col col-1 class="ads-icon">
+          <ion-icon name="ios-close" ></ion-icon>
+        </ion-col>
+      </ion-row>
+
+    </ion-col>
+
+
   </ion-row>
 
   <ion-row class="add" (click)="goaddadrs()">

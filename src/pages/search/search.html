@@ -23,19 +23,7 @@
 </ion-header>
 
 <ion-content style="background-color:#f4f4f4">
-  <ion-item-group>
-    <ion-row style="background-color: white">
-      <ion-col col-9>
-        <input type="text" [(ngModel)]="searchTxt" placeholder="请输入商家或美食名称" class="search">
-        <ion-icon name="close" *ngIf="searchTxt" (click)="nosearch()" class="close_icon"></ion-icon>
-      </ion-col>
-      <ion-col col-3 style="text-align: center">
-        <button ion-button style="width:85%;font-size: 1.2em;font-weight: 600;height: 40px;margin-top: 10px;"
-                (click)="search()">提交
-        </button>
-      </ion-col>
-    </ion-row>
-  </ion-item-group>
+
 
   <div *ngIf="history?.length>0 && flag==true">
     <ion-item-divider color="light">

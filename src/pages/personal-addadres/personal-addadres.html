@@ -14,33 +14,51 @@
     <ion-col col-1 class="ads ">
     </ion-col>
   </ion-row>
-  <form action="" margin-top="3px" style="background-color: white">
+
+
+  <form  margin-top="3px" style="background-color: white" novalidate>
   <ion-row class="add-margin">
-    <ion-col col-12 full></ion-col>
-    <input type="text" placeholder="请填写你的姓名" class="inputa">
+    <ion-col col-12 full [class.error]="!name?.valid && name?.touched">
+    <input type="text" placeholder="请填写你的姓名" name="name" class="inputa" [(ngModel)]="name" clearInput=true >
+    </ion-col>
+    <!--<ion-col col-12 *ngIf="name?.hasError('required') && name?.touched"-->
+               <!--class="error-message">* 请输入用户名</ion-col>-->
+
   </ion-row>
 
     <ion-row class="add-margin">
-      <ion-col col-12 full></ion-col>
-      <input type="text" placeholder="小区/写字楼/学校等" class="inputa">
+      <ion-col col-12 full>
+        <input type="text" value="{{adsname?.name}}" placeholder="小区/写字楼/学校等"
+               class="inputa" (click)="godetail()" name="address" [(ngModel)]="address" clearInput=true>
+      </ion-col>
     </ion-row>
 
     <ion-row class="add-margin">
-      <ion-col col-12 full></ion-col>
-      <input type="text" placeholder="请填写详细送餐地址" class="inputa">
+      <ion-col col-12 full>
+        <input type="text" value="{{adsname?.address}}" placeholder="请填写详细送餐地址" name="address_detail" class="inputa" [(ngModel)]="address_detail" clearInput=true>
+      </ion-col>
+
     </ion-row>
 
     <ion-row class="add-margin">
-      <ion-col col-12 full></ion-col>
-      <input type="text" placeholder="请填写能够联系到您的手机号" class="inputa">
+      <ion-col col-12 full>
+        <input type="text" placeholder="请填写能够联系到您的手机号" #telss
+               class="inputa" name="phone" [(ngModel)]="phone" clearInput=true >
+      </ion-col>
+
+      <!--<ion-col col-12 *ngIf="(phone?.hasError('minlength')||phone?.hasError('maxlength')||phone?.hasError('pattern')) && phone?.touched" class="error-message">* 请输入正确的电话号码</ion-col>-->
+
     </ion-row>
 
     <ion-row class="add-margin" padding-bottom="2px">
-      <ion-col col-12 full></ion-col>
-      <input type="text" placeholder="备用联系电话（选填）" class="inputa">
+      <ion-col col-12 full>
+        <input type="text" placeholder="备用联系电话（选填）" name="phone_bk"  class="inputa" [(ngModel)]="phone_bk" clearInput=true>
+      </ion-col>
+      <!--<ion-col col-12 *ngIf="(phone_bk?.hasError('minlength')||phone_bk?.hasError('maxlength')||phone_bk?.hasError('pattern')) && phone_bk?.touched" class="error-message">* 请输入正确的电话号码</ion-col>-->
+
     </ion-row>
   </form>
 
 
-  <button ion-button color="secondary" margin  style="width: 92%;margin-top: 15px;color: #f4f4f4">新增地址</button>
+  <button ion-button (click)="addres()" color="secondary" margin  style="width: 92%;margin-top: 15px;color: #f4f4f4" >新增地址</button>
 </ion-content>

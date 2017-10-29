@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 
 import { IonicPage, NavController, NavParams,ViewController } from 'ionic-angular';
 
+import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+
 /**
  * Generated class for the PersonalNamePage page.
  *
@@ -15,17 +17,21 @@ import { IonicPage, NavController, NavParams,ViewController } from 'ionic-angula
   templateUrl: 'personal-name.html',
 })
 export class PersonalNamePage {
-
+  username: any;
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               public viewCtrl:ViewController ) {
   }
-
+    udata:any
   ionViewDidLoad() {
+    this.udata=this.navParams.get('udata');
     console.log('ionViewDidLoad PersonalNamePage');
   }
   goto(){
     this.viewCtrl.dismiss()
+  }
+  changeuname(){
+
   }
 
 }

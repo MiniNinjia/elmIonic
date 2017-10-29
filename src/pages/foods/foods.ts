@@ -23,6 +23,7 @@ export class FoodsPage {
     console.log('ionViewDidLoad FoodsPage');
   }
   disMiss() {
+    this.navCtrl.push(HomePage)
     this.viewCtrl.dismiss();
   }
 
