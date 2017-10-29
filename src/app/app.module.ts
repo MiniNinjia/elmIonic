@@ -35,8 +35,8 @@ import {ShopCartPage} from '../pages/shop-cart/shop-cart'
 import {RestaurantListPage} from '../pages/restaurant-list/restaurant-list'
 import {FoodsPage} from '../pages/foods/foods'
 import {PayPage} from '../pages/pay/pay'
-
-
+import {SelAddressPage} from '../pages/sel-address/sel-address'
+import {AddNewAddressPage} from '../pages/add-new-address/add-new-address'
 
 
 
@@ -81,7 +81,9 @@ import {RestaurantComponent} from '../components/restaurant/restaurant';
     MyComponent,
     RestaurantComponent,
     RestaurantListPage,
-    FoodsPage
+    FoodsPage,
+    SelAddressPage,
+    AddNewAddressPage
 
   ],
   imports: [
@@ -125,6 +127,8 @@ import {RestaurantComponent} from '../components/restaurant/restaurant';
     MyComponent,
     RestaurantComponent,
     RestaurantListPage,
+    SelAddressPage,
+    AddNewAddressPage
   ],
   providers: [
     StatusBar,

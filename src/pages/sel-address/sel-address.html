@@ -1,0 +1,48 @@
+<!--
+  Generated template for the SelAddressPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-grid no-padding style="background-color:rgb(55, 199, 183);">
+    <ion-row style="background-color:#00a8ff;">
+      <button (click)="disMiss($event)" class="backBtn">
+        <h6 style="margin: 0.5em 0;font-size: 1.5em;">
+          <ion-icon name="ios-arrow-back"></ion-icon>
+        </h6>
+      </button>
+      <ion-col col-12 style=" text-align:center;">
+        <h6 class="title">选择地址</h6>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-header>
+
+
+<ion-content no-padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-12 class="position_container" *ngFor="let item of address;let i=index"  (click)="sel(i)">
+        <div class="infocontainer">
+          <ion-icon [style.color]="selIndex==i?'#4cd964':'#eee'" name="md-checkmark-circle" style="font-size: 1.5em; margin-right: 1em;"></ion-icon>
+          <div>
+            <header>
+              <span class="orderName">{{item?.name}}</span>
+              <span class="sex" *ngIf="item?.sex==1">先生</span>
+              <span class="sex" *ngIf="item?.sex==0">小姐</span>
+              <span class="telphone">{{item?.phone}}</span>
+            </header>
+            <div class="address">
+              <span class="addressTag" [style.background-color]="'#0d81ff'">{{item?.tag}}</span>
+              <span style="color: #777;">{{item?.address_detail}}</span>
+            </div>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+<ion-footer no-border style="color: #3190e8;text-align: center" (click)="addNewAddress()">
+   <h4> <ion-icon name="ios-add-circle-outline"></ion-icon>新增收货地址</h4>
+</ion-footer>

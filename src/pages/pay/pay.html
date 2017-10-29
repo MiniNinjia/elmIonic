@@ -22,20 +22,20 @@
 
 <ion-content no-padding style="background-color: #f5f5f5">
   <ion-grid no-padding>
-    <ion-row>
-      <ion-col col-12 class="position_container">
+    <ion-row >
+      <ion-col col-12 class="position_container" (click)="selAddress()">
         <div class="infocontainer">
           <img src="../../assets/img/position.png" class="addressImg">
           <div *ngIf="address?.length>=1">
             <header >
-              <span class="orderName">{{address[0]?.name}}</span>
-              <span class="sex" *ngIf="address[0]?.sex==1">先生</span>
-              <span class="sex" *ngIf="address[0]?.sex==0">小姐</span>
-              <span class="telphone">{{address[0]?.phone}}</span>
+              <span class="orderName">{{_Address?.name}}</span>
+              <span class="sex" *ngIf="_Address?.sex==1">先生</span>
+              <span class="sex" *ngIf="_Address?.sex==0">小姐</span>
+              <span class="telphone">{{_Address?.phone}}</span>
             </header>
             <div class="address">
-              <span class="addressTag" [style.background-color]="'#0d81ff'">{{address[0]?.tag}}</span>
-              <span style="color: #777;">{{address[0]?.address_detail}}</span>
+              <span class="addressTag" [style.background-color]="'#0d81ff'">{{_Address?.tag}}</span>
+              <span style="color: #777;">{{_Address?.address_detail}}</span>
             </div>
           </div>
         </div>

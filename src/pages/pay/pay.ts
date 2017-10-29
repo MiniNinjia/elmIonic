@@ -1,7 +1,8 @@
 import {Component} from '@angular/core';
-import {IonicPage, NavController, NavParams, ViewController,ActionSheetController } from 'ionic-angular';
+import {IonicPage, NavController, NavParams, ViewController, ActionSheetController} from 'ionic-angular';
 import {AddToCartProvider} from '../../providers/add-to-cart/add-to-cart';
 import {UserServiceProvider} from '../../providers/user-service/user-service';
+import {SelAddressPage} from '../sel-address/sel-address'
 import {
   trigger,
   state,
@@ -23,14 +24,14 @@ import {
   templateUrl: 'pay.html',
   animations: [
     trigger('background', [
-      state('in', style({opacity: 1,display:'block'})),
-      state('out', style({opacity: 0,display:'none'})),
+      state('in', style({opacity: 1, display: 'block'})),
+      state('out', style({opacity: 0, display: 'none'})),
       transition('in => out', animate('500ms ease-in')),
       transition('out => in', animate('500ms ease-out'))
     ]),
     trigger('container', [
-      state('in', style({bottom: 0,display:'block'})),
-      state('out', style({bottom: '-30%',display:'none'})),
+      state('in', style({bottom: 0, display: 'block'})),
+      state('out', style({bottom: '-30%', display: 'none'})),
       transition('in => out', animate('500ms ease-in')),
       transition('out => in', animate('500ms ease-out'))
     ])
@@ -40,13 +41,17 @@ export class PayPage {
   result: any;//加入购物车之后的结果
   address: any;//用户的收货信息、地址
   selPayType = 'out';
-  fapiao='不需要开发票'
+  fapiao = '不需要开发票'
+  userid: any;
+  _Address: any;
+
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
               public viewCtrl: ViewController,
               public atcp: AddToCartProvider,
               public usp: UserServiceProvider,
               public actionSheetCtrl: ActionSheetController) {
+
   }
 
   ionViewDidLoad() {
@@ -54,7 +59,7 @@ export class PayPage {
     let id = this.navParams.get('id');
     ////////////////////////////////////////////////////
     localStorage.setItem('userid', '7378');
-    let userid = localStorage.getItem('userid');
+    this.userid = localStorage.getItem('userid');
     let postdata = {
       come_from: 'web',
       restaurant_id: id,
@@ -64,12 +69,11 @@ export class PayPage {
 
     this.atcp.checkout(postdata).then((result) => {
       this.result = JSON.parse(result._body);
-      console.log(this.result);
     });
 
-    this.usp.getUseraddress(userid).then((data) => {
+    this.usp.getUseraddress(this.userid).then((data) => {
       this.address = data;
-      console.log(this.address);
+      this._Address = this.address[0];
     })
   }
 
@@ -81,6 +85,18 @@ export class PayPage {
     this.viewCtrl.dismiss();
   }
 
+  selAddress() {
+    this.navCtrl.push(SelAddressPage, {userid: this.userid, callback: this.getData});
+  }
+
+
+  getData = (data) => {
+    return new Promise((resolve, reject) => {
+      this._Address = data;
+      resolve();
+    });
+  };
+
   presentActionSheet() {
     let actionSheet = this.actionSheetCtrl.create({
       title: '是否需要发票',
@@ -89,20 +105,17 @@ export class PayPage {
           text: '是',
           role: 'destructive',
           handler: () => {
-            this.fapiao='需要开发票';
-            console.log('Destructive clicked');
+            this.fapiao = '需要开发票';
           }
-        },{
+        }, {
           text: '否',
           handler: () => {
-            this.fapiao='不需要开发票';
-            console.log('Archive clicked');
+            this.fapiao = '不需要开发票';
           }
-        },{
+        }, {
           text: '取消',
           role: 'cancel',
           handler: () => {
-            console.log('Cancel clicked');
           }
         }
       ]
