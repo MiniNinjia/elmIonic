@@ -1,10 +1,54 @@
-
+<ion-header style="background-color: #2c9aea;">
+  <ion-grid>
+    <ion-row>
+      <ion-col col-4>
+        <button (click)="disMiss()" style="font-size: 20px;background-color: transparent;color: white">
+          <ion-icon name="ios-arrow-back"></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col col-4 id="shoptitle">订单列表</ion-col>
+      <ion-col col-4></ion-col>
+      <!--</ion-navbar>-->
+    </ion-row>
+  </ion-grid>
+</ion-header>
 <ion-content>
-  <ion-list>
-    <ion-list-header>Follow us on Twitter</ion-list-header>
-    <ion-item>
-      <ion-icon name="ionic" item-start></ion-icon>
-      @ionicframework
-    </ion-item>
-  </ion-list>
+  <ion-grid>
+    <ion-row style="padding-top: 10px">
+      <ion-col col-2>
+        <img src="http://cangdu.org:8001/img/15e386ec1875697.jpeg" class="restaurant_image">
+        <!--<img class="orderimg" src="../../assets/img/cart_nothing.png">-->
+      </ion-col>
+      <ion-col col-10 class="line1">
+        <span class="ordertitle">效果演示</span>
+        <span class="wait"> 等待支付</span>
+        <div class="time">2017-10-29 10:38</div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-2></ion-col>
+      <ion-col col-10 class="line2">
+        <span class="ordertitle">四川火锅</span>
+        <span class="money"> ¥1616.00</span>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+
+  <!--<ion-list no-lines >-->
+    <!--<ion-item>-->
+    <!--<ion-thumbnail item-start  style="background-color: #9eeeb6">-->
+      <!--<img class="orderimg" src="../../assets/img/cart_nothing.png">-->
+    <!--</ion-thumbnail>-->
+
+      <!--<div class="line2">-->
+        <!--<span class="ordername">四川火锅</span>-->
+        <!--<span class="money">¥1616.00</span>-->
+      <!--</div>-->
+      <!--<div class="line3">-->
+        <!--<div class="btn"></div>-->
+      <!--</div>-->
+    <!--</ion-item>-->
+  <!--</ion-list>-->
 </ion-content>

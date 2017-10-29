@@ -53,6 +53,9 @@ import { AddToCartProvider } from '../providers/add-to-cart/add-to-cart';
 
 import {MyComponent} from '../components/my/my';
 import {RestaurantComponent} from '../components/restaurant/restaurant';
+import { SearchProvider } from '../providers/search/search';
+import { CityServiceProvider } from '../providers/city-service/city-service';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -153,6 +156,8 @@ import {RestaurantComponent} from '../components/restaurant/restaurant';
     IndexServiceProvider,
     SearchProvider,
     AddToCartProvider
+    SearchProvider,
+    CityServiceProvider
   ]
 
 

@@ -6,7 +6,7 @@ page-city {
   .aa,.bb{
 
     font-size: 0.95em;
-    color: #333;
+    color: #858585;
 
   }
   .aa{
@@ -26,11 +26,26 @@ page-city {
   color: #333;
 }
   .gezi{
-    border-top: solid 1px #c6c8cb;
+    border-bottom: solid 1px #c6c8cb;
     border-right: solid 1px #c6c8cb;
     height: 45px;
     color: #2c9aea;
     text-align: center;
     line-height: 45px;
+    //display: flex;
+    //align-items: center;
+  }
+  .all{
+    border-bottom: solid 1px #c6c8cb;
+    border-right: solid 1px #c6c8cb;
+    height: 45px;
+    color: #333;
+    text-align: center;
+    line-height: 45px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 }
