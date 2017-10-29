@@ -1,0 +1,51 @@
+page-city {
+  .city{
+    font-size: 1.2em;
+    color: #2c9aea;
+  }
+  .aa,.bb{
+
+    font-size: 0.95em;
+    color: #858585;
+
+  }
+  .aa{
+    margin-top: 5px;
+  }
+  .bb{
+    font-size: 0.7em;
+    margin-top: 10px;
+  }
+  .item-ios{
+    padding-left: 5px;
+    //padding-bottom: 0px;
+  }
+.lll{
+  font-size: 20px;
+  background-color: transparent;
+  color: #333;
+}
+  .gezi{
+    border-bottom: solid 1px #c6c8cb;
+    border-right: solid 1px #c6c8cb;
+    height: 45px;
+    color: #2c9aea;
+    text-align: center;
+    line-height: 45px;
+    //display: flex;
+    //align-items: center;
+  }
+  .all{
+    border-bottom: solid 1px #c6c8cb;
+    border-right: solid 1px #c6c8cb;
+    height: 45px;
+    color: #333;
+    text-align: center;
+    line-height: 45px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}

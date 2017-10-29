@@ -1,24 +1,50 @@
 page-details {
+  .border{
+    border-bottom: solid 1px #c6c8cb;
+  }
+  .icon_name{
+    //background-color: #f07373;
+    color: white;
+    border-radius: 3px;
+    font-weight: 600;
+  }
+  //.activities1{
+  //  background-color: red;
+  //}
+  .lll{
+    float: right;
+  }
+  #shoptitle{
+    //background-color: pink;
+    text-align: center;
+    color: white;
+    font-size: 1.5em;
+  }
+  .border{
+    border-bottom: solid 1px #c6c8cb;
+  }
+  .icon_name{
+    //background-color: #f07373;
+    color: white;
+    border-radius: 3px;
+    font-weight: 600;
+  }
+  //.activities1{
+  //  background-color: red;
+  //}
 
-}
-.border{
-  border-bottom: solid 1px #c6c8cb;
-}
-.icon_name{
-  //background-color: #f07373;
-  color: white;
-  border-radius: 3px;
-  font-weight: 600;
-}
-//.activities1{
-//  background-color: red;
-//}
-.lll{
-  float: right;
+  .imag{
+    height: 100px;
+    padding-left: 20px;
+  }
+
 }
 #shoptitle{
   //background-color: pink;
   text-align: center;
   color: white;
   font-size: 1.5em;
+}
+.lll{
+  float: right;
 }

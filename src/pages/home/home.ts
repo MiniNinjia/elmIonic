@@ -8,6 +8,7 @@ import {RegistPage} from "../regist/regist";
 import {ItemsPage} from "../items/items";
 import {DetailsPage} from "../details/details";
 import {FoodsPage} from "../foods/foods";
+import {CityPage} from "../city/city";
 import {SearchPage} from '../search/search'
 import {TabsPage} from '../tabs/tabs'
 
@@ -157,18 +158,16 @@ export class HomePage {
     modelPage.present()
   }
 
-  items() {
-    let modelPage = this.modalCtrl.create(ItemsPage);
-    modelPage.present()
-  }
-
-  details() {
-    let modelPage = this.modalCtrl.create(DetailsPage);
-    modelPage.present();
-  }
-
   foods() {
-    let modelPage = this.modalCtrl.create(FoodsPage)
+    let modelPage = this.modalCtrl.create(FoodsPage);
     modelPage.present();
   }
+  details(){
+    let modelPage=this.modalCtrl.create(DetailsPage)
+    modelPage.present();
+  }
+ city(){
+   let modelPage=this.modalCtrl.create(CityPage)
+   modelPage.present();
+ }
 }

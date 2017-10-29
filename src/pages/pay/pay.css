@@ -1,0 +1,143 @@
+page-pay .backBtn {
+  color: white;
+  background-color: transparent;
+  position: absolute;
+  left: 0;
+  width: 3em;
+  text-align: left;
+  padding-left: 0.5em;
+  z-index: 10; }
+page-pay .title {
+  color: white;
+  font-weight: 700;
+  font-size: 1.4em;
+  margin: 0.5em 0; }
+page-pay .position_container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2em 1em 2em !important;
+  min-height: 5em;
+  background: url("../../assets/img/address_bottom.png") 0 100% repeat-x;
+  box-sizing: border-box;
+  background-size: auto 0.2em;
+  background-color: white; }
+page-pay .addressImg {
+  float: left;
+  margin-right: 1em; }
+page-pay .infocontainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; }
+page-pay .orderName {
+  font-size: 1.3em;
+  font-weight: 700; }
+page-pay .addressTag {
+  padding: 0 0.3em;
+  border-radius: 0.3em;
+  color: white; }
+page-pay .deliver_time {
+  border-left: solid 0.5em #3190e8;
+  margin-top: 1em;
+  min-height: 6em;
+  padding-left: 3em !important;
+  padding-right: 2em !important; }
+page-pay .deliver_type {
+  padding: 0.2em 0.5em;
+  background-color: #3190e8;
+  font-size: smaller;
+  color: white;
+  border-radius: 0.8em; }
+page-pay .payType {
+  margin-top: 1em;
+  min-height: 6em;
+  padding-left: 2em !important;
+  padding-right: 2em !important;
+  background-color: white; }
+page-pay .comment {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; }
+page-pay .payType p {
+  margin: 0;
+  padding: 1em 0; }
+page-pay .hongbao {
+  color: #aaa;
+  border-top: solid 1px #f5f5f5; }
+page-pay .cartContainer {
+  margin-top: 1em;
+  min-height: 6em;
+  background-color: white; }
+page-pay .cart_shop {
+  display: flex;
+  align-items: center;
+  padding-left: 2em !important;
+  padding-right: 2em !important;
+  min-height: 4em;
+  border-bottom: solid 1px #f5f5f5; }
+page-pay .cart_shop img {
+  width: 2em;
+  height: 2em;
+  margin-right: 1em; }
+page-pay .cartDetail {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0.8em 2em !important; }
+page-pay .cartDetail span {
+  color: #666;
+  font-size: 1em; }
+page-pay .cartDetail span:nth-child(2) {
+  min-width: 40%;
+  display: flex;
+  justify-content: space-between; }
+page-pay .cartDetail span:nth-child(2) span:nth-child(1) {
+  color: #f60; }
+page-pay .state {
+  border-top: solid 1px #f5f5f5; }
+page-pay .submit {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0; }
+page-pay .submit ion-col {
+  padding: 1em 0;
+  color: white; }
+page-pay .submit span {
+  font-size: 1.5em; }
+page-pay ._payTypeContainer {
+  position: fixed;
+  z-index: 2000;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  opacity: 0; }
+page-pay .payTypeSel {
+  position: fixed;
+  z-index: 2000;
+  height: 30%;
+  background-color: white;
+  left: 0;
+  right: 0; }
+page-pay .payTypeSel header {
+  background-color: #fafafa;
+  font-size: 1.2em;
+  color: #333;
+  text-align: center;
+  line-height: 2.5em; }
+page-pay .type {
+  display: flex;
+  justify-content: space-between;
+  padding: 1em 1em;
+  margin: 0;
+  font-size: 1.2em;
+  color: #ccc; }
+page-pay .check span {
+  color: #333 !important; }
+page-pay .check ion-icon {
+  color: #4cd964 !important; }
+
+/*# sourceMappingURL=pay.css.map */
