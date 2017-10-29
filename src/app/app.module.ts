@@ -1,15 +1,21 @@
-import { NgModule, ErrorHandler } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {HttpClientModule} from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
-import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
-import { MyApp } from './app.component';
+import {NgModule, ErrorHandler} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
-import { AboutPage } from '../pages/about/about';
-import { ContactPage } from '../pages/contact/contact';
-import { HomePage } from '../pages/home/home';
-import { TabsPage } from '../pages/tabs/tabs';
+import {HttpClientModule} from '@angular/common/http';
+import {FormsModule} from '@angular/forms';
+import {IonicApp, IonicModule, IonicErrorHandler} from 'ionic-angular';
+import {MyApp} from './app.component';
+import {HttpModule} from '@angular/http';
+import {StatusBar} from '@ionic-native/status-bar';
+import {SplashScreen} from '@ionic-native/splash-screen';
+
+
+
+import {AboutPage} from '../pages/about/about';
+import {ContactPage} from '../pages/contact/contact';
+import {HomePage} from '../pages/home/home';
+import {TabsPage} from '../pages/tabs/tabs';
 import {ShopPage} from '../pages/shop/shop'
 import {PersonalPage} from '../pages/personal/personal'
 import {PersonalServePage} from '../pages/personal-serve/personal-serve'
@@ -19,7 +25,6 @@ import {PersonalAddadresPage}from'../pages/personal-addadres/personal-addadres'
 import {PersonalPasswordPage}from'../pages/personal-password/personal-password'
 import {PersonalNamePage}from'../pages/personal-name/personal-name'
 import {PersonalQuestionPage}from'../pages/personal-question/personal-question'
-
 import {LoginPage} from '../pages/login/login'
 import {RegistPage} from '../pages/regist/regist'
 import {ItemsPage} from '../pages/items/items'
@@ -29,29 +34,25 @@ import {SearchPage} from '../pages/search/search'
 import {ShopCartPage} from '../pages/shop-cart/shop-cart'
 import {RestaurantListPage} from '../pages/restaurant-list/restaurant-list'
 import {FoodsPage} from '../pages/foods/foods'
+import {PayPage} from '../pages/pay/pay'
+import {SelAddressPage} from '../pages/sel-address/sel-address'
+import {AddNewAddressPage} from '../pages/add-new-address/add-new-address'
 import {CityPage} from '../pages/city/city'
 import {CitydetailPage} from '../pages/citydetail/citydetail'
 
-import {HttpModule} from '@angular/http';
 
-import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
-import { FoodServiceProvider } from '../providers/food-service/food-service';
-import { GlobleServiceProvider } from '../providers/globle-service/globle-service';
-import {from} from "rxjs/observable/from";
 
-import { ExplainServiceProvider } from '../providers/explain-service/explain-service';
+import {FoodServiceProvider} from '../providers/food-service/food-service';
+import {GlobleServiceProvider} from '../providers/globle-service/globle-service';
+import {ExplainServiceProvider} from '../providers/explain-service/explain-service';
 import {UserServiceProvider}from'../providers/user-service/user-service'
-
-
-import { RestaurantProvider } from '../providers/restaurant/restaurant';
-import { IndexServiceProvider } from '../providers/index-service/index-service';
-
+import {RestaurantProvider} from '../providers/restaurant/restaurant';
+import {IndexServiceProvider} from '../providers/index-service/index-service';
+import {SearchProvider} from '../providers/search/search';
+import { AddToCartProvider } from '../providers/add-to-cart/add-to-cart';
 
 import {MyComponent} from '../components/my/my';
 import {RestaurantComponent} from '../components/restaurant/restaurant';
-import { SearchProvider } from '../providers/search/search';
-
 @NgModule({
   declarations: [
     MyApp,
@@ -68,7 +69,7 @@ import { SearchProvider } from '../providers/search/search';
     PersonalPasswordPage,
     PersonalQuestionPage,
     PersonalNamePage,
-
+    PayPage,
     //婷
     ShopPage,
     LoginPage,
@@ -85,7 +86,9 @@ import { SearchProvider } from '../providers/search/search';
     MyComponent,
     RestaurantComponent,
     RestaurantListPage,
-    FoodsPage
+    FoodsPage,
+    SelAddressPage,
+    AddNewAddressPage
 
   ],
   imports: [
@@ -94,7 +97,7 @@ import { SearchProvider } from '../providers/search/search';
     BrowserAnimationsModule,
     HttpModule,
     HttpClientModule,
-    IonicModule.forRoot(MyApp,{
+    IonicModule.forRoot(MyApp, {
       tabsHideOnSubPages: 'true'         //隐藏全部子页面tabs
     })
   ],
@@ -115,7 +118,7 @@ import { SearchProvider } from '../providers/search/search';
     IndetailsPage,
     SearchPage,
     FoodsPage,
-
+    PayPage,
     //婷
     ShopPage,
     PersonalPage,
@@ -129,6 +132,8 @@ import { SearchProvider } from '../providers/search/search';
     MyComponent,
     RestaurantComponent,
     RestaurantListPage,
+    SelAddressPage,
+    AddNewAddressPage,
     FoodsPage,
     CityPage,
     CitydetailPage
@@ -146,9 +151,11 @@ import { SearchProvider } from '../providers/search/search';
 
     RestaurantProvider,
     IndexServiceProvider,
-    SearchProvider
+    SearchProvider,
+    AddToCartProvider
   ]
 
 
 })
-export class AppModule {}
+export class AppModule {
+}

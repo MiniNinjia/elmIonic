@@ -1,0 +1,61 @@
+<!--
+  Generated template for the AddNewAddressPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-grid no-padding style="background-color:rgb(55, 199, 183);">
+    <ion-row style="background-color:#00a8ff;">
+      <button (click)="disMiss($event)" class="backBtn">
+        <h6 style="margin: 0.5em 0;font-size: 1.5em;">
+          <ion-icon name="ios-arrow-back"></ion-icon>
+        </h6>
+      </button>
+      <ion-col col-12 style=" text-align:center;">
+        <h6 class="title">添加地址</h6>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-header>
+
+
+<ion-content no-padding>
+  <ion-grid>
+    <ion-row class="_border-bottom">
+      <ion-col col-4 style="vertical-align: middle">
+        <span class="left">联系人</span>
+      </ion-col>
+      <ion-col col-8>
+        <input type="text" class="right _border-bottom" placeholder="你的名字">
+        <span class="sex"><ion-icon name="md-checkmark-circle"></ion-icon>先生</span>
+        <span class="sex"><ion-icon name="md-checkmark-circle"></ion-icon>女士</span>
+      </ion-col>
+    </ion-row>
+    <ion-row class="_border-bottom">
+      <ion-col col-4 style="vertical-align: middle">
+        <span class="left">联系电话</span>
+      </ion-col>
+      <ion-col col-8>
+        <input type="text" class="right" placeholder="你的手机号">
+      </ion-col>
+    </ion-row>
+    <ion-row class="_border-bottom">
+      <ion-col col-4 style="vertical-align: middle">
+        <span class="left">送餐地址</span>
+      </ion-col>
+      <ion-col col-8>
+        <input type="text" class="right _border-bottom" placeholder="点击选择地址">
+        <input type="text" class="right" placeholder="详细地址（如门牌号等）">
+      </ion-col>
+    </ion-row>
+    <ion-row class="_border-bottom">
+      <ion-col col-4 style="vertical-align: middle">
+        <span class="left">标签</span>
+      </ion-col>
+      <ion-col col-8>
+        <input type="text" class="right" placeholder="无/家/学校/公司">
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

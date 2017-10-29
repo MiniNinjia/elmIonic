@@ -159,7 +159,7 @@ export class HomePage {
   }
 
   foods() {
-    let modelPage = this.modalCtrl.create(FoodsPage)
+    let modelPage = this.modalCtrl.create(FoodsPage);
     modelPage.present();
   }
   details(){

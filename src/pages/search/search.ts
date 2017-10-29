@@ -52,6 +52,7 @@ export class SearchPage {
     this.flag = false;
     this.ps.search(txt, '31.23037,121.473701', (result) => {
       this.result = JSON.parse(result._body);
+      console.log(this.result);
     })
   };
 
